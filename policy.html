@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>合肥市充电管理平台-政策资讯</title>
+		<style>			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			ul,li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.header li{
+				float:left;
+				padding:33px 15px 0px;
+				
+			}
+			.nav>img {
+    padding-top: 16px;
+}
+			.header>.nav>a{
+				display: inline-block;
+				width: 121px;
+				height: 47px;
+				border: none!important;
+				float: left;
+				padding-top: 16px;
+			    cursor: pointer;
+			}
+			.header ul{
+				height: 80px;
+				display: inline-block;
+				float: right;
+				/*margin-left: 574px;*/
+			}
+			.header a{
+				text-decoration: none;
+				font-family: '微软雅黑';
+				font-size: 16px;
+				color: #666666;	
+				padding-bottom: 22px;
+				border-bottom: 4px solid transparent;
+			}
+			.header a:hover{
+				color: #38A479;
+			}
+			
+			.header{
+				height: 80px;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			.header .nav{
+				width: 1200px;
+				margin: 0 auto;
+				height: 80px;
+			}
+			.main{
+				margin: 0 auto;
+				width: 1200px;
+				position: relative;
+			}
+			.nav{
+				font-size: 16px;
+				color: #333333;
+				margin: 23px 0 20px 0;
+			}
+			.nav span:nth-child(1){
+				color: #999999;
+			}
+			.nav span:nth-child(2){
+				margin: 0 20px;
+			}
+			.beside{
+				width: 320px;
+				background: #F7F7F7;
+				float: left;
+				margin-right: 20px;				
+			}
+			.beside li{
+				display: flex;
+				justify-content: center;
+				align-items:center;
+				height: 80px;
+				text-align: center;
+				font-size: 20px;
+				color: #333333;
+			    cursor: pointer;
+			}
+			div.on{
+				color: #FFFFFF;
+			}
+			
+			.container{
+				padding-top: 5px;
+				float: left;
+				width: 850px;
+				/*border-top: 1px solid #CCCCCC;*/
+				min-height: 450px;
+			}
+			.container>ul>li>figure>img{
+				float: left;
+				
+			}
+			.container ul li:nth-child(1) figure{
+				border-top: 1px solid #CCCCCC;
+			}
+			.container figure{
+				padding: 20px 0px;
+				margin: 0px auto;
+				width: 810px;				
+				border-bottom: 1px solid #CCCCCC;
+			    cursor: pointer;
+			}
+			.container figure:hover{
+				padding: 20px 14px;
+				transform: scale(1.02);
+				box-shadow: 0 5px 14px rgba(56, 164, 121, 0.4);
+			}
+			.container figure img{
+				width: 240px;
+				height: 180px;
+			}
+			.container figcaption{
+				width: 540px;
+				float:left;
+				margin: 0 0 0 20px;
+			}
+			.container figcaption div:nth-child(1){
+				font-size: 20px;
+				line-height: 30px;
+				color: #333333;
+				height: 60px;
+			}
+			.container figcaption div:nth-child(2){				
+				height: 78px;
+				font-size: 16px;
+				line-height: 26px;
+				color: #999999;
+				overflow: hidden;//溢出隐藏
+			    text-overflow: ellipsis;//文本溢出省略号
+			    margin: 16px 0 13px 0;
+			    display: -webkit-box;
+			     -webkit-box-orient: vertical;
+			    -webkit-line-clamp: 3;/*规定超过3行的部分截断*/
+			}
+			.container figcaption div:nth-child(3){
+				font-size: 16px;
+				line-height: 30px;
+				float: right;
+			}
+			.container #img{
+				display: inline-block;
+				margin: 50px auto 0;
+				width: 422px;
+				height: 262px;
+			}
+			.all #img1{				
+				display:block;
+				margin: 200px auto;
+				width: 422px;
+				height: 262px;
+			}
+			.news{
+				background: #F7F7F7;
+				display: none;
+				
+			}
+			.news1{
+				background: #FFFFFF;
+				border-top: 1px solid #CCCCCC;
+				padding-top: 20px;
+				width: 1200px;
+				margin: 0 auto;
+				overflow: hidden;
+				padding-bottom: 108px;
+			}
+			.news1 .title{
+				text-align: center;
+				font-size: 24px;
+				line-height: 30px;
+				color: #333333;
+			}
+			.news1 .source{
+				text-align: center;
+				font-size: 12px;
+				line-height: 30px;
+				color: #999999;
+			}
+			.source>span{
+				margin-right: 30px;
+			}
+			.clearbox{
+				clear: both;
+			}
+			.page{
+				display: inline-block;
+				
+			}
+			.page .num,.page .next,.page .prev{
+				width: 30px;
+				height: 30px;
+				display: inline-block;
+				vertical-align: top;
+				text-align: center;
+				line-height: 30px;	
+			}
+			.page div{
+				display: inline-block;
+			}
+			div.on{
+				background:#38A479;
+			}
+			.beside .new{
+				/*background:#38A479;*/
+			}
+			.buttom{
+				overflow: hidden;
+			}
+			footer{
+				background: #3e4d4d;
+				height: 367px;
+				border: 1px solid transparent;
+			}
+			footer>div{
+				width: 1200px;
+				height: 367px;
+				margin: 0 auto;
+			}
+			footer table{
+				margin-top: 62px;
+				border-right: 1px dashed #999999;
+				float: left;
+			}
+			footer thead td{
+				padding-right: 58px;
+				padding-bottom: 12px;
+			}
+			footer tbody td{
+				padding-top: 18px;
+			}
+			footer thead td{
+				font-size: 20px;
+				color:#FFFFFF;
+			}
+			footer tbody td a:hover{
+				color: #FFFFFF;
+			}
+			footer tbody a{
+				font-size: 16px;
+				color: #AEAEAE;
+			}
+			footer tbody td a:hover{
+				color: #FFFFFF;
+			}
+			footer .we{
+				padding-right: 117px;
+			}
+			footer .right1{
+				float: left;
+				padding-top: 62px;
+				padding-left: 110px;
+				color: ;
+			}
+			footer .contact{
+				color: #FFFFFF;
+				font-size: 20px;
+				margin-bottom: 28px;
+			}
+			footer .phone{
+				color: #AEAEAE;
+				font-size: 30px;
+				margin-bottom: 20px;
+			}
+			footer .emails{
+				color: #AEAEAE;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			footer .address{
+				color: #AEAEAE;
+				font-size: 16px;
+			}
+			.leave{
+				width: 68px;
+				height: 68px;
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				display: inline-block;
+			}
+			.pages{
+				text-align: center;
+				width: 840px;
+				margin-bottom: 100px;
+				float: left;
+				margin-top: 60px;
+			    cursor: pointer;
+			    margin-left: 360px;
+			}
+		</style>
+		<script src="js/jquery-2.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/globalContext.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<a href="leave.html" class="leave">
+			<img src="img/mapImg/leave.png" alt="" />
+	</a>
+	<div class="header">
+	</div>
+		<div class="all">
+			<div class="main">
+				<div class="nav">
+					<span>政策资讯</span>
+					<span><img src="img/mapImg/close.png" alt="" /></span>
+					<span>招标公告</span>
+				</div>
+				
+				<div class="buttom">
+					<div class="beside">
+						<ul>
+							<li _id="1" class="new">最新活动</li>
+							<li _id="2">招标公告</li>
+							<li _id="3">新闻资讯</li>
+							<li _id="4">政策汇编</li>
+							<li _id="5">行业标准</li>
+						</ul>
+					</div>
+					<div class="container" >
+						<ul>
+							
+						</ul>
+						
+					</div>
+					<div class="pages">
+						<div class="page">
+							<div class="prev"><img src="img/other/policy/prev.png" alt="" /></div>
+							<div class="count">
+								
+							</div>
+							
+							<div class="next"><img src="img/other/policy/next.png" alt="" /></div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="news">
+				<div class="news1">
+					<div class="title">
+						特斯拉汽车订单破百亿背后的秘密，以及国产化后能否成为机车
+					</div>
+					<div class="source">
+						<span>来源:<span>新华网</span></span>2017年4月17日
+					</div>
+					<div>
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<footer>			
+		</footer>
+		<script type="text/javascript" src="js/globalContext.js" charset="utf-8"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){$('.header').load('header.html',function(){
+            $('.header ul').find('a').eq(2).css('color','#38A479').siblings().css('color','#666666');
+            $('.header ul').find('a').eq(2).css('border-bottom','4px solid #38A479').siblings().css('border-bottom','4px solid transparent');
+       });});
+        $('footer').load('footer.html',function(){
+        	 $('.policy').click(function(){
+        	 	$('.beside').find('li').removeClass('.new');
+				var thId = $(this).attr('thId');
+				localStorage.setItem("policy",thId);
+			})
+			$('.introduce').click(function(){
+				var thId = $(this).attr('thId');
+				localStorage.setItem("introduce",thId);
+			})
+        });
+			var listData = {
+				pageNum:1,
+				pagesize:5
+			};
+			$(function(){
+				$('.beside').find('li').on('click',function(){
+					$('.count').html('');
+					$(this).css('background','#38A479').siblings().css('background','#F7F7F7');
+					$(this).css('color','#FFFFFF').siblings().css('color','black');
+					listData.infoType = $(this).attr('_id');
+					localStorage.setItem("policy","");
+					listData.pageNum = 1;
+					$('.nav').find('span').eq(2).text($(this).text());
+					getPolicyList();
+					console.log(localStorage.getItem("policy"))
+				})
+				
+				$('.leave').find('img').click(function(){
+					localStorage.setItem('pagename','政策资讯');				
+					localStorage.setItem('page','policy.html');				
+	           })
+				
+				$('.container').on('mouseenter','figure',function(){					
+					$(this).parents('li').prev().find('figure').css('border-bottom','none');
+					$(this).css('border-bottom','none');
+				})
+				$('.container').on('mouseenter','ul>:first>figure',function(){
+					$(this).css('border-top','none');
+				})
+				$('.container').on('mouseleave','ul>:first>figure',function(){	
+					$(this).css('border-top','1px solid #cccccc');
+				})
+				$('.container').on('mouseleave','figure',function(){
+					$(this).parents('li').prev().find('figure').css('border-bottom','1px solid #cccccc')
+					$(this).css('border-bottom','1px solid #cccccc');
+				})
+				
+				
+				$('.page').on('click','.num',function(){
+					$(this).css('background','#38A479').siblings().css('background','#FFFFFF');
+					$(this).addClass('on').siblings().removeClass('on');
+					listData.pageNum = $(this).attr('data');
+					getPolicyList();
+				})
+				 //下一页
+	            $('.next').click(function(){
+	                var index = $('div.on').attr('data');
+	                var pages = $('.count').attr('pages');
+	                var lastPage = Number($('.count').attr('pages'))+1;
+	                index = (index++)==lastPage?index=pages:index++;
+	                listData.pageNum = index; 
+	                if(index<lastPage){
+	                	$('.on').next().css('background','#38A479').siblings().css('background','#FFFFFF');
+	               		$('.on').next().addClass('on').siblings().removeClass('on');
+	                }
+	                getPolicyList();
+	            });
+	            //上一页
+	            $('.prev').click(function(){
+	                var index = $('div.on').attr('data');
+	                index = (index--)==0?index=1:index--;
+	                listData.pageNum = index; 
+	                if(index>0){
+	                	 $('.on').prev().css('background','#38A479').siblings().css('background','#FFFFFF');
+	               		$('.on').prev().addClass('on').siblings().removeClass('on');
+	                }
+	                getPolicyList();
+	            });
+	            
+	            var policy = localStorage.getItem("policy");
+	            if(policy==null){
+	            	$('.about').css({
+						'background':'#38A479',
+						'color':'#ffffff'
+					})
+	            	getPolicyList();
+	            }else{
+	            	if(policy=='0'||policy=='1'||policy=='2'||policy=='3'||policy=='4'){
+						$('.beside').find('li').removeClass('.new');
+					}
+			        $('.beside li').eq(policy).click();
+			        localStorage.setItem("policy",""); 
+	            }
+	        })
+			function togglePagenav(isShow){
+				if(isShow)				
+					$('.prev,.next').show();
+				else
+					$('.prev,.next').hide();
+			}
+			function createPages(res){				
+				var pageStr = '';
+				$('.count').html('');
+				togglePagenav(false);
+            	if(res.requestCode == 0){
+            		var data = res.data;
+            		var total = data.total;
+            		var pages = data.pages;
+                    var dPages=data.pageNum;
+            		$('.count').attr('pages',pages);
+            		if(pages<=5){
+            			for(var i = 1;i<=pages;i++){
+	                		if(i==dPages){
+	                			pageStr += '<div class="num on" data = "'+i+'">'+i+'</div>'	
+	                		}else{
+	                		 	pageStr +='<div class="num" data = "'+i+'">'+i+'</div>';	
+	                		}	
+	                	}
+            		}
+            		else {
+            			if(dPages<=3){
+            				for(var i = 1;i<=5;i++){
+		                		if(i==dPages){
+		                			pageStr += '<div class="num on" data = "'+i+'">'+i+'</div>'	
+		                		}else if(i==5){
+		                			pageStr += '<span>...</span>'+'<div class="num" data = "'+pages+'">'+pages+'</div>'
+		                		}
+		                		else{
+		                		 	pageStr +='<div class="num" data = "'+i+'">'+i+'</div>'	
+		                		}	
+		                	}
+            			}
+            			else if(dPages==(pages-2)){
+		                			pageStr += '<div class="num" data = "'+1+'">'+1+'</div>'+'<span>...</span>';
+            				pageStr	+=	'<div class="num" data = "'+(dPages-1)+'">'+(dPages-1)+'</div>'+
+            							'<div class="num on" data = "'+dPages+'">'+dPages+'</div>'+
+            							'<div class="num" data = "'+(dPages+1)+'">'+(dPages+1)+'</div>'+
+            							'<div class="num" data = "'+pages+'">'+pages+'</div>'
+            			}
+            			else if(dPages==(pages-1)){
+                			pageStr += '<div class="num" data = "'+1+'">'+1+'</div>'+'<span>...</span>';
+            				pageStr	+=	'<div class="num" data = "'+(pages-3)+'">'+(pages-3)+'</div>'+
+            							'<div class="num" data = "'+(dPages-1)+'">'+(dPages-1)+'</div>'+
+            							'<div class="num on" data = "'+dPages+'">'+dPages+'</div>'+
+            							'<div class="num" data = "'+pages+'">'+pages+'</div>'
+            			}
+            			else if(dPages==pages){
+		                			pageStr += '<div class="num" data = "'+1+'">'+1+'</div>'+'<span>...</span>';
+            				pageStr	+=	'<div class="num" data = "'+(pages-3)+'">'+(pages-3)+'</div>'+
+            							'<div class="num" data = "'+(pages-2)+'">'+(pages-2)+'</div>'+
+            							'<div class="num" data = "'+(pages-1)+'">'+(pages-1)+'</div>'+
+            							'<div class="num on" data = "'+pages+'">'+pages+'</div>'
+            			}
+            			else{
+		                			pageStr += '<div class="num" data = "'+1+'">'+1+'</div>'+'<span>...</span>';
+            				pageStr	+=	'<div class="num" data = "'+(dPages-1)+'">'+(dPages-1)+'</div>'+
+            							'<div class="num on" data = "'+dPages+'">'+dPages+'</div>'+
+            							'<div class="num" data = "'+(dPages+1)+'">'+(dPages+1)+'</div>'+'<span>...</span>'+
+            							'<div class="num" data = "'+pages+'">'+pages+'</div>'
+            			}
+            		}
+            	}
+            	$('.count').html(pageStr);
+    			if(pageStr!='')
+					togglePagenav(true);
+			}
+			
+			
+			   function getPolicyList(){
+			   		var li = "";
+			        $.ajax({
+			          	url:root+"/cityplat_web/policyinfo/list.do",
+		              	type:'post',
+		              	data:listData,
+	                  	dataType:'json',
+	                  	success:function(res){
+		                    console.log(res)
+		                    var li='';
+		                    if(res.requestCode == 0){
+	                    	$(window).scrollTop(0)
+		                      var data = res.data;
+		                      var list = data.list;
+		                      if(data.total==0){
+			                      	$('#img').remove()
+			                      	var img = '<img src="img/other/policy/no.png" alt="" id="img"/>'
+			                      	$('.container').css('text-align','center')
+			                      	$('.container').append(img)
+		                      }else{
+		                    	 	$('#img').remove();
+		                    	 	$('.container').css('text-align','');
+		                      		$.each(list, function(index,item) {
+					                        li +='<li >'+
+					                    '<figure onclick="openLink(\''+item.linkAddr+'\')">'+
+					                      '<img src="'+ item.infoImgFile+'" alt="" style=" height: 180px; width: 240px;cursor: pointer;"/>'+
+					                      '<figcaption>'+
+					                        '<div>'+item.title+'</div>'+
+					                        '<div>'+item.infoProfile+'</div>'+
+					                        '<div>'+item.releaseTimeStr+'</div>'+
+					                      '</figcaption>'+
+					                      '<div class="clearbox"></div>'+
+					                    '</figure>'+
+					                  '</li>'                
+		                      		});
+		                    }
+		                    }
+		                    $('.container').find('ul').html(li);
+		                    createPages(res);
+		                },
+	                  	error : function() {  
+				            $('.main').hide();
+	                    	var img1 = '<img src="img/other/policy/404.png" alt="" id="img1"/>'
+	                    	$('.all').append(img1);  
+				        }
+	                  	
+		          	})
+			      }
+			      function openLink(url){
+			        window.open(url,'_blank'); //在新的空白页面打开
+			      }
+			
+		</script>
+	</body>
+</html>

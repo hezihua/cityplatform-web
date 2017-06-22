@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>合肥市充电管理平台-平台介绍</title>
+		<script src="js/jquery-2.2.0.min.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="js/globalContext.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			ul,li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.header li{
+				float:left;
+				padding:33px 15px 0px;
+				
+			}
+			.header>.nav>a{
+				display: inline-block;
+				width: 121px;
+				height: 47px;
+				border: none!important;
+				float: left;
+				padding-top: 16px;
+			}
+			.nav>img {
+		    padding-top: 16px;
+			}
+			.header ul{
+				height: 80px;
+				display: inline-block;
+				float: right;
+			}
+			.header a{
+				text-decoration: none;
+				font-family: '微软雅黑';
+				font-size: 16px;
+				color: #666666;	
+				padding-bottom: 22px;
+				border-bottom: 4px solid transparent;
+			}
+			.header a:hover{
+				color: #38A479;
+			}
+			
+			.header{
+				height: 80px;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			.header .nav{
+				width: 1200px;
+				margin: 0 auto;
+				height: 80px;
+			}
+			.main{
+				margin: 0 auto;
+				width: 1200px;
+			}
+			.nav{
+				font-size: 16px;
+				color: #333333;
+				margin: 23px 0 20px 0;
+				
+			}
+			.nav span:nth-child(1){
+				color: #999999;
+			}
+			.nav span:nth-child(2){
+				margin: 0 20px;
+			}
+			.content{
+				overflow: hidden;
+			}
+			.beside{
+				width: 320px;
+				background: #F7F7F7;
+				float: left;
+				margin-right: 40px;				
+			}
+			.beside li{
+				display: flex;
+				justify-content: center;
+				align-items:center;
+				height: 80px;
+				text-align: center;
+				font-size: 20px;
+				color: #333333;
+				cursor: pointer;
+			}
+			.beside li:hover{
+				color: #FFFFFF;
+				background: #38A479;
+			}
+			.container1,.container2{
+				border-top: 1px solid #CCCCCC;
+				width: 800px;
+				float: left;
+			}
+			.container2{
+				display: none;
+			}
+			.introduce span,.contact span,.flow span,.superiority span,.txt span{
+				font-size: 20px;
+				line-height: 30px;
+				padding-top: 30px;
+				display: block;
+			}
+			.contact img,.superiority img,.txt img,.introduce img,.flow img{
+				display: block;
+			}
+			.superiority figcaption{
+				width: 360px;
+				display: flex;
+				justify-content: center;
+				padding: 30px 0 ;
+			}
+			.introduce p{
+				margin: 30px 0 30px 0;
+				line-height: 26px;
+				text-indent:46px;
+				color: #666666;
+			}
+			.contact div:nth-child(2){
+				font-size: 24px;
+				line-height: 30px;
+				color: #38A479;
+				margin-bottom: 16px;
+			}
+			.contact div:nth-child(3){
+				margin-top: 30px;
+				font-size: 24px;
+				line-height: 30px;
+				color: #38A479;
+			}
+			.contact div:nth-child(4),.contact div:nth-child(5){
+				font-size: 16px;
+				line-height: 30px;
+				color: #333333;
+			}
+			#map{
+				width: 800px;
+				height: 400px;
+				margin-top: 30px;
+			}
+			.super{
+				display: flex;
+				justify-content: space-between;
+				margin-top: 30px;
+			}
+			.flow{
+				background: url(img/other/guide/flow.png) no-repeat center 100px; 
+				width: 800px;
+				height: 260px;
+			}
+			.flow .flow1 div{
+				width: 50px;
+				height: 60px;
+				font-size: 20px;
+				line-height: 30px;
+				
+			}
+			.flow1 div{
+				padding-top: 60px;
+				display: inline-block;
+				color: #FFFFFF;
+			}
+			.flow1 div:nth-child(1){
+				margin-left: 73px;
+			}
+			.flow1 div:nth-child(2){
+				margin-left: 150px;
+
+			}
+			.flow1 div:nth-child(3){
+				margin-left: 150px;
+
+			}
+			.flow1 div:nth-child(4){
+				margin-left: 150px;
+			}
+			.content{
+				margin-bottom: 86px;
+				overflow: hidden;
+			}
+			.txt{
+				/*margin-bottom: 86px;*/
+			}
+			.txt div:nth-child(3){
+				margin-top: 30px;
+				display: flex;
+				justify-content: center;
+				font-size: 16px;
+				line-height: 30px;
+				color: #666666;
+			}
+			.txt div:nth-child(4){
+				display: flex;
+				justify-content: center;
+				font-size: 16px;
+				line-height: 35px;				
+				margin-top: 20px;
+				height: 35px;
+				
+			}
+			#download:hover{
+				background: #42C390;
+			}
+			.beside .about{
+				/*background: #38A479;
+				color: white;*/
+			}
+			.txt div:nth-child(4) a{
+				color: #FFFFFF;
+				width: 100px;
+				height: 35px;
+				line-height: 35px;
+				background: #38A479;
+				display: inline-block;
+				text-align: center;
+				font-size: 16px;
+			}
+			/*body{overflow-x:hidden}*/
+			footer{
+				/*width: 1920px;*/
+				background: #3e4d4d;
+				height: 367px;
+				border: 1px solid transparent;
+			}
+			footer>div{
+				width: 1200px;
+				height: 367px;
+				margin: 0 auto;
+			}
+			footer table{
+				/*margin-left: 360px;*/
+				margin-top: 62px;
+				border-right: 1px dashed #999999;
+				float: left;
+			}
+			footer thead td{
+				padding-right: 58px;
+				padding-bottom: 12px;
+			}
+			footer tbody td{
+				padding-top: 18px;
+			}
+			footer thead td{
+				font-size: 20px;
+				color:#FFFFFF;
+			}
+			footer tbody a{
+				font-size: 16px;
+				color: #AEAEAE;
+			}
+			footer tbody td a:hover{
+				color: #FFFFFF;
+			}
+			footer .we{
+				padding-right: 117px;
+			}
+			footer .right1{
+				float: left;
+				padding-top: 62px;
+				padding-left: 110px;
+				color: ;
+			}
+			footer .contact{
+				color: #FFFFFF;
+				font-size: 20px;
+				margin-bottom: 28px;
+			}
+			footer .phone{
+				color: #AEAEAE;
+				font-size: 30px;
+				margin-bottom: 20px;
+			}
+			footer .emails{
+				color: #AEAEAE;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			footer .address{
+				color: #AEAEAE;
+				font-size: 16px;
+			}
+			.leave{
+				width: 68px;
+				height: 68px;
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>	
+			<a href="leave.html" class="leave">
+				<img src="img/mapImg/leave.png" alt="" />
+			</a>
+			<div class="header">
+				
+			</div>
+			<div class="all">
+				<div class="main">
+					<div class="nav">
+						<span>平台介绍</span>
+						<span><img src="img/mapImg/close.png" alt="" /></span>
+						<span>关于我们</span>
+					</div>
+					<div class="content">
+						<div class="beside">
+							<ul>
+								<li class="about">关于我们</li>
+								<li class="guide">接入指南</li>
+							</ul>
+						</div>
+						<div class="container1">
+							<div class="introduce">
+								<span>平台简介</span>
+								<img src="img/other/guide/line.png" alt="" />
+								<p>云杉智慧新能源技术有限公司（以下简称“云杉智慧”）2015年成立于深圳前海，由知名上市公司杉杉股份 （股票代码：600884）牵头投资成立，公司已获得深圳等城市新能源充电设施运营商资质。
+云杉智慧经过城市快速充换电站技术研发和经验积累、综合运营平台研发和运营实践的技术验证与商业模式示范阶段、提供“车网协 、智能互联、专业运维”绿色出行综合服务的发展阶段，规划在未来的2~3年时间里进入“线上线下一体化”阶段。
+云杉智慧作为中国新能源汽车与充电运营行业的领军企业，放眼全球交通能源发展格局，率先建设中国最具规模的城市级快速充换电网络， 开发最智能的下一代电动汽车出行运营系统，探索最符合时代需要的电动汽车线下&线上服务，为电动汽车低碳智能出行提供有力支撑。 并站在产业链的高度，依托“车网协同、智能互联、专业运维”的商业模式推出电动汽车充电线下与线上服务、电动汽车智能出行服务、 电动汽车相关数据服务，提供充电设施及运营解决方案、绿色出行解决方案，致力于做中国最具影响力的城市级新能源出行服务平台！
+								</p>
+							</div>
+							<div class="contact">
+								<span>联系我们</span>
+								<img src="img/other/guide/line.png" alt="" />
+								<div>400-111-8220</div>
+								<div>hefei@winsky.com.cn</div>
+								<div>合肥市高新区港汇广场A座 1401</div>
+								<div id="map"></div>
+							</div>
+						</div>
+						<div class="container2">
+							<div class="superiority">
+								<span>接入优势</span>
+								<img src="img/other/guide/line.png" alt="" />
+								<div class="super">
+									<figure>
+										<img src="img/other/guide/share.png" alt="" />
+										<figcaption>
+											共享海量用户
+										</figcaption>
+									</figure>
+									<figure>
+										<img src="img/other/guide/develop.png" alt="" />
+										<figcaption>
+											互联互通,开放共赢
+										</figcaption>
+									</figure>
+								</div>
+								
+							</div>
+							<div class="flow">
+								<span>接入流程</span>
+								<img src="img/other/guide/line.png" alt="" />
+								<div class="flow1">
+									<div>提交申请</div>
+									<div>签署协议</div>
+									<div>系统对接</div>
+									<div>正式上线</div>
+								</div>
+								
+							</div>
+							<div class="txt">
+								<span>接入文档</span>
+								<img src="img/other/guide/line.png" alt="" />
+								<div>合肥市充电桩公共服务平台接入协议</div>
+								<div><a id="download"  href="">文档下载</a></div>
+								
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<footer>
+			
+			
+		</footer>
+		  <script type="text/javascript" src="js/globalContext.js" charset="utf-8"></script>
+			<script type="text/javascript">
+			 $('.header').load('header.html',function(){
+	            $('.header ul').find('a').eq(3).css('color','#38A479').siblings().css('color','#666666');
+	            $('.header ul').find('a').eq(3).css('border-bottom','4px solid #38A479').siblings().css('border-bottom','4px solid transparent');
+	        });
+        	$('footer').load('footer.html',function(){
+        		$('.policy').click(function(){
+					var thId = $(this).attr('thId');
+					localStorage.setItem("policy",thId);
+				})
+				$('.introduce').click(function(){
+					
+					var thId = $(this).attr('thId');
+					localStorage.setItem("introduce",thId);
+				})
+        	});
+        	$('#download').attr("href",root+"/downloadfiles/合肥市充电桩公共服务平台接入协议.docx");
+			</script>
+			<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=6d07f1b66bd05949f645f65671667117"></script>
+		    <script type="text/javascript">
+		    	$(function(){
+		    		 var map = new AMap.Map('map',{
+			            resizeEnable: true,
+			            zoom: 13,
+			            center: [117.233169,31.832633]
+			        });
+			        var marker = new AMap.Marker({
+					    position: [117.233169,31.832633],//marker所在的位置
+					    map:map//创建时直接赋予map属性
+					});
+					
+					$('.beside').find('.about').on('click',function(){
+						$(this).css('background','#38A479').siblings().css('background','#F7F7F7');
+						$(this).css('color','#FFFFFF').siblings().css('color','black');
+						$('.container1').show().siblings('.container2').hide();
+						$('.nav').find('span').eq(2).text('关于我们');
+					})
+					$('.beside').find('.guide').on('click',function(){
+						$(this).css('background','#38A479').siblings().css('background','#F7F7F7');
+						$(this).css('color','#FFFFFF').siblings().css('color','black');
+						$('.container2').show().siblings('.container1').hide();
+						$('.nav').find('span').eq(2).text('接入指南');
+					})
+					
+					
+					$('.leave').find('img').click(function(){
+						localStorage.setItem('pagename','平台介绍');	
+						localStorage.setItem('page','introduce1.html');	
+		           })
+					
+					var introduce = localStorage.getItem("introduce");
+					console.log(introduce)
+					if(introduce==null){
+						$('.about').css({
+							'background':'#38A479',
+							'color':'#ffffff'
+						})
+					}else{
+						//balabala  要触发的点击事件  $('#xxx').click()
+				        $('.beside li').eq(introduce).click();
+				        //销毁 from 防止在b页面刷新 依然触发$('#xxx').click()
+				        localStorage.setItem("introduce",""); 
+					}
+		            	
+		    	})
+		       
+		    </script>
+	</body>
+</html>

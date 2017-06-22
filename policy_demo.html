@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			ul,li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.header li{
+				float:left;
+				padding:33px 15px 0px;
+				
+			}
+			.header img{
+				float: left;
+				padding-top: 16px;
+			}
+			.header ul{
+				height: 80px;
+				display: inline-block;
+				float: right;
+				margin-left: 574px;
+			}
+			.header a{
+				text-decoration: none;
+				font-family: '微软雅黑';
+				font-size: 16px;
+				color: #666666;	
+				padding-bottom: 22px;
+				border-bottom: 4px solid transparent;
+			}
+			.header a:hover{
+				color: #38A479;
+			}
+			
+			.header{
+				height: 80px;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			.header .nav{
+				width: 1200px;
+				margin: 0 auto;
+				height: 80px;
+			}
+			.all{
+				/*width: 1920px;*/
+				/*display: flex;
+				justify-content: center;*/
+			}
+			.main{
+				margin: 0 auto;
+				width: 1200px;
+				position: relative;
+			}
+			.nav{
+				font-size: 16px;
+				color: #333333;
+				margin: 23px 0 20px 0;
+				
+			}
+			.nav span:nth-child(2){
+				margin: 0 20px;
+			}
+			.beside{
+				width: 320px;
+				background: #F7F7F7;
+				float: left;
+				margin-right: 40px;				
+			}
+			.beside li{
+				display: flex;
+				justify-content: center;
+				align-items:center;
+				height: 80px;
+				text-align: center;
+				font-size: 20px;
+				color: #333333;
+			}
+			/*.beside li:hover{
+				color: #FFFFFF;
+				background: #38A479;
+			}*/
+			
+			.container{
+				float: left;
+				width: 840px;
+				/*text-align:center;*/
+			}
+			.container img{
+				float: left;
+				
+			}
+			.container figure{
+				padding: 20px 0;
+				border-top: 2px solid #CCCCCC;
+			}
+			.container figure img{
+				width: 240px;
+				height: 180px;
+			}
+			.container figcaption{
+				width: 570px;
+				float:left;
+				margin: 0 0px 0 20px;
+			}
+			.container figcaption div:nth-child(1){
+				font-size: 20px;
+				line-height: 30px;
+				color: #333333;
+				height: 60px;
+			}
+			.container figcaption div:nth-child(2){				
+				height: 78px;
+				font-size: 16px;
+				line-height: 26px;
+				color: #999999;
+				overflow: hidden;//溢出隐藏
+			    text-overflow: ellipsis;//文本溢出省略号
+			    margin: 16px 0 13px 0;
+			    display: -webkit-box;
+			     -webkit-box-orient: vertical;
+			    -webkit-line-clamp: 3;/*规定超过3行的部分截断*/
+			}
+			.container figcaption div:nth-child(3){
+				font-size: 16px;
+				line-height: 30px;
+				float: right;
+			}
+			.news{
+				background: #F7F7F7;
+				display: none;
+				
+			}
+			.news1{
+				background: #FFFFFF;
+				border-top: 1px solid #CCCCCC;
+				padding-top: 20px;
+				width: 1200px;
+				margin: 0 auto;
+				overflow: hidden;
+				padding-bottom: 108px;
+			}
+			.news1 .title{
+				text-align: center;
+				font-size: 24px;
+				line-height: 30px;
+				color: #333333;
+			}
+			.news1 .source{
+				text-align: center;
+				font-size: 12px;
+				line-height: 30px;
+				color: #999999;
+			}
+			.source>span{
+				margin-right: 30px;
+			}
+			.clearbox{
+				clear: both;
+			}
+			.page{
+				display: inline-block;
+				margin-top: 60px;
+				margin-bottom: 190px;
+			}
+			.page .num,.page .next,.page .prev{
+				width: 30px;
+				height: 30px;
+				display: inline-block;
+				vertical-align: top;
+				text-align: center;
+				line-height: 30px;	
+			}
+			.page div{
+				display: inline-block;
+			}
+			body{overflow-x:hidden}
+			div.on{
+				background:#38A479;
+			}
+			.beside .new{
+				background:#38A479;
+			}
+			.buttom{
+				overflow: hidden;
+			}
+			footer{
+				/*width: 1920px;*/
+				background: #3e4d4d;
+				height: 367px;
+				border: 1px solid transparent;
+			}
+			footer>div{
+				width: 1200px;
+				height: 367px;
+				margin: 0 auto;
+			}
+			footer table{
+				/*margin-left: 360px;*/
+				margin-top: 62px;
+				border-right: 1px dashed #999999;
+				float: left;
+			}
+			footer thead td{
+				padding-right: 58px;
+				padding-bottom: 12px;
+			}
+			footer tbody td{
+				padding-top: 18px;
+			}
+			footer thead a{
+				font-size: 20px;
+				color:#FFFFFF;
+			}
+			footer tbody a{
+				font-size: 16px;
+				color: #AEAEAE;
+			}
+			footer .we{
+				padding-right: 117px;
+			}
+			footer .right{
+				float: left;
+				padding-top: 62px;
+				padding-left: 110px;
+				color: ;
+			}
+			footer .contact{
+				color: #FFFFFF;
+				font-size: 20px;
+				margin-bottom: 28px;
+			}
+			footer .phone{
+				color: #AEAEAE;
+				font-size: 30px;
+				margin-bottom: 20px;
+			}
+			footer .emails{
+				color: #AEAEAE;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			footer .address{
+				color: #AEAEAE;
+				font-size: 16px;
+			}
+			.leave{
+				width: 68px;
+				height: 68px;
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				display: inline-block;
+			}
+			.pages{
+				text-align: center;
+			}
+		</style>
+	<script src="js/jquery-2.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/laypage.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="css/laypage.css">
+	<script type="text/javascript">$(document).ready(function(){$('.top').load('header.html');$('.footer').load('footer.html');});</script>
+	</head>
+	<body>
+		<div class="top"></div>
+		<div class="all">
+			<div class="main">
+				<div class="nav">
+					<span>政策资讯</span>
+					<span><img src="img/mapImg/close.png" alt="" /></span>
+					<span>招标公告</span>
+				</div>
+				
+				<div class="buttom">
+					<div class="beside">
+						<ul>
+							<li _id="1" class="new">最新活动</li>
+							<li _id="2">招标公告</li>
+							<li _id="3">新闻资讯</li>
+							<li _id="4">政策汇编</li>
+							<li _id="5">行业标准</li>
+						</ul>
+					</div>
+					<div class="container">
+						<ul>
+							
+						</ul>
+						<div id="page" style="padding: 60px 0 70px 0;">
+						</div>
+					</div>
+				</div>
+				<a href="leave.html" class="leave">
+					<img src="img/mapImg/leave.png" alt="" />
+				</a>
+			</div>
+			<div class="news">
+				<div class="news1">
+					<div class="title">
+						特斯拉汽车订单破百亿背后的秘密，以及国产化后能否成为机车
+					</div>
+					<div class="source">
+						<span>来源:<span>新华网</span></span>2017年4月17日
+					</div>
+					<div>
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="footer"></div>
+		<script type="text/javascript">
+			var listData = {
+				pageNum:1,
+				pagesize:2
+			};
+			setPage();
+			$(function(){
+
+				$('.header').find('li').click(function(){
+					localStorage.setItem('index',$(this).index());
+				})
+				var index = localStorage.getItem('index');
+				$('.header').find('a').eq(index).css('color','#38A479').siblings().css('color','#666666');
+				$('.header').find('a').eq(index).css('border-bottom','4px solid #38A479').siblings().css('border-bottom','4px solid transparent');
+				
+				
+				$('.beside').find('li').on('click',function(){
+					$('.count').html('');
+					$(this).css('background','#38A479').siblings().css('background','#F7F7F7');
+					$(this).css('color','#FFFFFF').siblings().css('color','black');
+					listData.infoType = $(this).attr('_id');
+					listData.pageNum = 1;	
+					$('.nav').find('span').eq(2).text($(this).text());
+					getPolicyList(listData);
+				})
+				
+				$('.leave').find('img').click(function(){
+					localStorage.setItem('name','政策资讯');				
+	            })
+				$('.nav').find('span').eq(0).click(function(){
+					$('.new').css('background','#38A479').siblings().css('background','#F7F7F7');
+					$('.new').css('color','#FFFFFF').siblings().css('color','black');
+					$('buttom').show().siblings('.news').hide();
+					$('.nav').find('span').eq(2).text('最新活动');
+				})
+				
+
+	            
+	            var policy = localStorage.getItem("policy");
+	            if(policy==null){
+	            	getPolicyList(listData);
+	            }else{
+	            	//balabala  要触发的点击事件  $('#xxx').click()
+			        $('.beside li').eq(policy).click();
+			        //销毁 from 防止在b页面刷新 依然触发$('#xxx').click()
+			        localStorage.setItem("policy",""); 
+			        $('.header').find('a').css('color','#666666');
+			        $('.header').find('a').css('border-bottom','4px solid transparent');
+			        $('.header').find('a').eq(2).css('color','#38A479')//.siblings().css('color','#666666');
+					$('.header').find('a').eq(2).css('border-bottom','4px solid #38A479')//.siblings().css('border-bottom','4px solid transparent');
+	            }
+
+	        })
+
+	        function setPage(){
+				laypage({
+	              	  cont: 'page', //容器。值支持id名、原生dom对象，jquery对象,
+	              	  pages: listData.pages, //总页数
+	              	  skin: 'molv', //皮肤
+	              	  curr:  listData.pageNum,
+	              	  first: 1, //将首页显示为数字1,。若不显示，设置false即可
+	              	  last: listData.pages, //将尾页显示为总页数。若不显示，设置false即可
+	              	  prev: '<', //若不显示，设置false即可
+	              	  next: '>', //若不显示，设置false即可
+	              	  jump: function(obj,first){
+	              		if(!first){
+	              			listData.pageNum = obj.curr;
+	              			getPolicyList(listData);
+	              		}
+	              	   }
+	              	});
+			}
+	        
+			   function getPolicyList(listData){
+				   var li = "";
+			        $.ajax({
+			          url:"cityplat_web/policyinfo/list.do",
+			              type:'post',
+			              data:listData,
+			                  dataType:'json',
+			                  success:function(res){
+			                    if(res.requestCode == 0){
+			                      var data = res.data;
+			                      var list = data.list;
+			                      console.log(data)
+			                      listData.pageNum = data.pageNum;
+			                      listData.pages = data.pages;
+			                      $.each(list, function(index,item) {
+			                        li +='<li >'+
+			                    	'<figure onclick="openLink(\''+item.linkAddr+'\')">'+
+			                      '<img src="'+ item.infoImgFile+'" alt="" style=" height: 168px; width: 180px;cursor: pointer;"/>'+
+			                      '<figcaption>'+
+			                        '<div>'+item.title+'</div>'+
+			                        '<div>'+item.infoProfile+'</div>'+
+			                        '<div>'+item.releaseTimeStr+'</div>'+
+			                      '</figcaption>'+
+			                      '<div class="clearbox"></div>'+
+			                    '</figure>'+
+			                  '</li>'                
+			                      });
+			                      $('.container').find('ul').html(li);
+			                      setPage();
+			                    }
+			                }
+			          })
+			      }
+			      function openLink(url){
+			        window.open(url,'_blank'); //在新的空白页面打开
+			      }
+			
+		</script>
+	</body>
+</html>

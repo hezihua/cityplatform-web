@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>合肥市充电管理平台</title>
+		<script src="js/jquery-2.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<script src="js/swiper.min.js"></script>
+		<script src="js/globalContext.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js"></script>
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				font-family: "微软雅黑";
+
+			}
+			ul,li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.header li{
+				float:left;
+				padding:33px 15px 0px;
+				
+			}
+			.header>.nav>a{
+				display: inline-block;
+				width: 121px;
+				height: 47px;
+				border: none!important;
+				float: left;
+				padding-top: 16px;
+			    cursor: pointer;
+			}
+			.header ul{
+				height: 80px;
+				display: inline-block;
+				float: right;
+				/*margin-left: 574px;*/
+			}
+			.nav>img {
+		    padding-top: 16px;
+			}
+			
+			.header ul a{
+				text-decoration: none;
+				font-family: '微软雅黑';
+				font-size: 16px;
+				color: #666666;	
+				padding-bottom: 22px;
+				border-bottom: 4px solid transparent;
+			}
+			.header a:hover{
+				color: #38A479;
+			}
+			
+			.header{
+				height: 80px;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			.nav{
+				width: 1200px;
+				margin: 0 auto;
+				height: 80px;
+			}
+			.first{
+				background: url(img/first/banner.png) no-repeat top center;
+				height: 480px;
+				text-align: center;
+				
+			}
+			.first img{
+				padding-top: 88px;
+			}
+			.two span{
+				margin-right: 35px;
+			}
+			.summary-title{
+				/*cursor:pointer;*/
+				width: 258px;
+				border-bottom: 1px solid #000200;
+				display: flex;
+				justify-content:center;
+				font-size: 30px;
+				color: #000000;
+				position: relative;
+				margin-top: 40px;
+				margin-bottom: 44px;
+			}
+			.summary{
+				display: flex;
+				justify-content:center;
+				
+			}
+			.summary-title span{
+				background: white;
+			 	position: absolute;
+			  	left: 54px;
+			  	top: -20px;
+			  	padding: 0 15px;
+			}
+			.main-data{
+				display: flex;
+				justify-content:center;
+				/*width: 1920px;*/
+			}
+			.kwh div:nth-child(1),.count div:nth-child(1){
+				font-size: 50px;
+				color: #38A479;
+				display: flex;
+				justify-content:center;
+				padding: 32px 0 0 0;
+			}
+			.kwh div:nth-child(2),.count div:nth-child(2){
+				font-size: 20px;
+				color: #38A479;
+				display: flex;
+				justify-content:center;
+				padding: 20px 0;
+			}
+			.kwh div:nth-child(3),.count div:nth-child(3){
+				font-size: 20px;
+				display: flex;
+				justify-content:center;
+				padding: 0 0 32px 0;
+			}
+			.kwh{
+				margin-right: 40px;
+				width: 580px;
+				background: #F7F7F7;
+			}
+			.count{
+				background: #F7F7F7;
+				width: 580px;
+			}
+			.box{
+				/*width: 1920px;*/
+				display: flex;
+				justify-content:center;
+			}
+			.container{
+				width: 1200px;
+				display: flex;
+				justify-content: space-around;
+				margin-top: 40px;
+				
+			}
+			figcaption span{
+				color: #38A479;
+				font-size: 30px;
+				margin-left: 20px;
+			}
+			.application{
+				display: flex;
+				justify-content: space-around;
+			}
+			.application div{
+				display: flex;
+				justify-content: space-around;
+				background: #38A479;
+				width: 200px;
+				margin-top: 40px;
+				padding: 20px 0;
+				
+				margin-bottom: 40px;
+				font-size: 24px;
+				cursor:pointer;
+				
+			}
+			.application div:hover{
+				background: #42C390;
+			}
+			.application a{
+				color: #FFFFFF;
+			}
+			.three{
+				background: #F6F6F6;
+				height: 734px;
+			}
+			.new-title{
+				padding-top: 80px;
+				margin-bottom: 62px;
+				cursor:pointer;
+			}
+			.new-title ul{
+				display: flex;
+				justify-content:center;
+			}
+			.new-title li{
+				margin-right: 52px;
+				font-size: 30px;
+				padding-bottom: 7px;
+				border-bottom: 5px solid transparent;	
+				color:#999999 !important;
+			}
+			.new-title .active{
+				margin-right: 52px;
+				font-size: 30px;
+				padding-bottom: 7px;
+				border-bottom: 5px solid #38A479;	
+				color:#333333 !important;
+			}
+			.new-title li:hover{
+				color:#333333 !important;
+			}
+			.new-contain{
+				padding-bottom: 80px;
+			}
+			.new-contain .right img{
+				width: 210px;
+				height: 140px;
+			}
+			.new-contain .newNews{
+				display: none;
+			}
+			.new-contain .newNews,.new-contain .newPolicy{
+				width: 1200px;
+				margin: 0 auto;
+			}
+			.new-contain>div>figure{
+				width: 500px;				
+				display: inline-block;
+			}
+			.four{
+				position: relative;
+			}
+			.left figcaption{
+				
+				font-size: 24px;
+				color: #333333;
+				margin-top: 40px;
+				padding:0 20px;
+			}
+			.left div{
+				position: relative;
+				width: 100%;
+				height: 68px;
+
+				
+			}
+			.left figcaption span{
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				font-size: 12px;
+				color: #333333;
+				float: right;
+				padding-top: 14px;
+			}
+			.left{
+				vertical-align: top;
+				margin-right: 50px;
+				background: white;
+				height: 460px;
+				cursor:pointer;
+				
+			}
+			.left:hover{
+				transform:scale(1.02);
+		    	border: 1px solid #55e9a9; 
+		    	box-shadow: 0px 5px 14px rgba(56, 164, 121, 0.4);
+			}
+			.new-contain>div>div{
+				display: inline-block;
+				width: 640px;
+			}
+			.right img{
+				float: left;
+				vertical-align:top; 
+				display:block
+			}
+			.right figure{
+				background: white;
+				cursor:pointer;
+				
+			}
+			.right figure:hover{
+		    	transform:scale(1.02);
+		    	border: 1px solid #55e9a9; 
+		    	box-shadow: 0px 5px 14px rgba(56, 164, 121, 0.4);
+		    }
+			.right figcaption{
+				width: 384px;
+				vertical-align: top;
+				display: inline-block;
+				padding-left: 16px;
+				padding-right: 20px;
+				
+			}
+			.new-contain .right figure{
+				height: 140px;
+			}
+			.right figure:nth-child(2){
+				margin: 18px 0;
+			}
+			.right figcaption div:nth-child(1){
+				font-size: 18px;
+				line-height: 24px;
+				padding-top: 18px;
+			}
+			.right figcaption div:nth-child(2){
+				color: #999999;
+				padding: 8px 0;
+				font-size: 16px;
+				overflow: hidden;/*溢出隐藏*/
+			    text-overflow: ellipsis;/*文本溢出省略号*/
+			    white-space: nowrap;/*不换行*/
+			}
+			.right figure{
+				position: relative;
+			}
+			.right figcaption div:nth-child(3){
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+				font-size: 16px;
+				float: right;
+				color: #666666;
+			}
+			.leave{
+				width: 68px;
+				height: 68px;
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				display: inline-block;
+				z-index:1000;
+			}
+			footer{
+				/*width: 1920px;*/
+				margin-top: 50px;
+				background: #3e4d4d;
+				height: 367px;
+				border: 1px solid transparent;
+			}
+			footer>div{
+				width: 1200px;
+				height: 367px;
+				margin: 0 auto;
+			}
+			footer table{
+				/*margin-left: 360px;*/
+				margin-top: 62px;
+				border-right: 1px dashed #999999;
+				float: left;
+			}
+			footer thead td{
+				padding-right: 58px;
+				padding-bottom: 12px;
+			}
+			footer tbody td{
+				padding-top: 18px;
+			}
+			footer thead td{
+				font-size: 20px;
+				color:#FFFFFF;
+			}
+			footer tbody a{
+				font-size: 16px;
+				color: #AEAEAE;
+			}
+			footer tbody td a:hover{
+				color: #FFFFFF;
+			}
+			footer .we{
+				padding-right: 117px;
+			}
+			footer .right1{
+				float: left;
+				
+				padding-top: 62px;
+				padding-left: 110px;
+				color: ;
+			}
+			footer .contact{
+				color: #FFFFFF;
+				font-size: 20px;
+				margin-bottom: 28px;
+			}
+			footer .phone{
+				color: #AEAEAE;
+				font-size: 30px;
+				margin-bottom: 20px;
+			}
+			footer .emails{
+				color: #AEAEAE;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			footer .address{
+				color: #AEAEAE;
+				font-size: 16px;
+			}
+			.swiper-container{
+		        width:1200px;
+		        height: 300px;
+		    }
+		    .swiper-slide {
+		    	height: 300px;
+		    	width: 380px!important;
+		    	margin: 0 10px;
+		        text-align: center;
+		        font-size: 18px;
+		        background: #fff;
+		        cursor:pointer;
+		        display: -webkit-box;
+		        display: -ms-flexbox;
+		        display: -webkit-flex;
+		        display: flex;
+		        -webkit-box-pack: center;
+		        -ms-flex-pack: center;
+		        -webkit-justify-content: center;
+		        justify-content: center;
+		        -webkit-box-align: center;
+		        -ms-flex-align: center;
+		        position: relative;
+		    }
+		    .swiper-button-next{
+		    	background-image: url(img/first/优质企业-未选中-右.png)!important;
+		    	background-size: 48px 81px;
+		    	width: 48px;
+		    	height: 81px;
+				right:10px;
+				top:100px;
+		    }
+		    
+		    .swiper-button-prev{
+		    	background-image: url(img/first/优质企业-未选中-左.png)!important;
+		    	background-size: 48px 81px;
+		    	width: 48px;
+		    	height: 81px;
+				left:10px;
+				top:100px;
+		    }
+		    .swiper-button-next:hover{
+		    	background-image: url(img/first/优质企业-选中-右.png)!important;
+		    }
+		    .swiper-button-prev:hover{
+		    	background-image: url(img/first/优质企业-选中-左.png)!important;
+		    }
+		    .swiper-slide:hover{
+		    	transform:scale(1.02);
+		    }
+		    .swiper-slide img{
+		    	width: 380px;
+		    	height: 240px;
+		    }
+		    .swiper-slide figcaption{
+		 		width: 100%;
+		    	position: absolute;
+		    	left: 0;
+		    	bottom: 20px;
+		    }
+		    .swiper-slide figcaption div{
+		    	
+		    	text-align: center!important;
+		    	width: 100%;
+		    }
+		    
+		</style>
+		
+	</head>
+	<body>
+		<a href="leave.html" class="leave">
+			<img src="img/mapImg/leave.png" alt="" />
+		</a>
+		
+		<script src="js/first.js" type="text/javascript" charset="utf-8"></script>
+		<div class="header">
+						
+		</div>
+		<div class="first">
+			<div>
+				<img src="img/first/hefei.png" alt="" />
+			</div>			
+		</div>
+		<div class="two1">
+			<div class="summary">
+				<div class="summary-title">
+					<span>平台概述</span>
+					<div class="clearbox"></div>
+				</div>			
+			</div>
+			<div class="main-data">
+				<div class="kwh">
+					<div>6381454</div>
+					<div>kwh</div>
+					<div>累计充电度数</div>
+				</div>
+				<div class="count">
+					<div>783124</div>
+					<div>次</div>
+					<div>累计充电次数</div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="container">
+					<figure>
+						<img src="img/first/seller.png" alt=""/>
+						<figcaption>
+							运营商<span id="operatorCount">--</span>
+						</figcaption>
+					</figure>
+					<figure>
+						<img src="img/first/station.png" alt=""/>
+						<figcaption>
+							充电站<span id="stakeGroupCount">--</span>
+						</figcaption>
+					</figure>
+					<figure>
+						<img src="img/first/dStation.png" alt=""/>
+						<figcaption>
+							直流桩<span id="dcStakeCount">--</span>
+						</figcaption>
+					</figure>
+					<figure>
+						<img src="img/first/aStation.png" alt=""/>
+						<figcaption>
+							交流桩<span id="acStakeCount">--</span>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="application">
+				<a href="introduce1.html"><div>申请接入</div></a>
+			</div>
+		</div>
+		<div class="three">
+	
+			<div class="new-title">
+				<ul>
+					<li class="active policy">最新政策</li>
+					<li class="information">最新资讯</li>
+				</ul>
+			</div>
+			<div class="new-contain">
+				<div class="newPolicy">
+					<figure class="left">
+						<img src="" alt="" />
+						<figcaption>
+							<div><span></span></div>
+						</figcaption>
+					</figure>
+					<div class="right">
+						<figure>
+							<img src="" alt="" />
+							<figcaption>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figcaption>
+						</figure>
+						<figure>
+							<img src="" alt="" />
+							<figcaption>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figcaption>
+						</figure>
+						<figure>
+							<img src="" alt="" />
+							<figcaption>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+				<div class="newNews">
+					<figure class="left">
+						<img src="" alt="" />
+						<figcaption>
+							<div><span></span></div>
+						</figcaption>
+					</figure>
+					<div class="right">
+						<figure>
+							<img src="" alt="" />
+							<figcaption>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figcaption>
+						</figure>
+						<figure>
+							<img src="" alt="" />
+							<figcaption>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figcaption>
+						</figure>
+						<figure>
+							<img src="" alt="" />
+							<figcaption>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="four">
+	
+			<div class="new-title">
+				<ul>
+					<li class="goodManage active">优质企业</li>
+					<li class="goodStation">优质充电站</li>
+				</ul>
+			</div>
+				<div class="swiper-container">
+			        <div class="swiper-wrapper">
+			        	<figure class="swiper-slide">
+							<img src="img/first/stakeGroup1.jpg" alt="" />
+							<figcaption>
+								<div>公交企业</div>
+							</figcaption>
+						</figure>
+						<figure class="swiper-slide">
+							<img src="img/first/stakeGroup2.jpg" alt="" />
+							<figcaption>
+								<div>绿地乔治庄园企业</div>
+							</figcaption>
+						</figure>
+						<figure class="swiper-slide">
+							<img src="img/first/stakeGroup3.jpg" alt="" />
+							<figcaption>
+								<div>普天安徽企业</div>
+							</figcaption>
+						</figure>
+						<figure class="swiper-slide">
+							<img src="img/first/stakeGroup1.jpg" alt="" />
+							<figcaption>
+								<div>公交企业</div>
+							</figcaption>
+						</figure>
+						<figure class="swiper-slide">
+							<img src="img/first/stakeGroup2.jpg" alt="" />
+							<figcaption>
+								<div>绿地乔治庄园企业</div>
+							</figcaption>
+						</figure>
+						<figure class="swiper-slide">
+							<img src="img/first/stakeGroup3.jpg" alt="" />
+							<figcaption>
+								<div>普天安徽企业</div>
+							</figcaption>
+						</figure>
+			        </div>
+			        <!-- Add Arrows -->
+			        <div class="swiper-button-next"></div>
+			        <div class="swiper-button-prev"></div>
+			   </div>
+		</div>
+		<footer>
+			
+		</footer>
+
+		<script type="text/javascript">
+	        $('.header').load('header.html',function(){
+	            $('.header ul').find('a').eq(0).css('color','#38A479').siblings().css('color','#666666');
+	            $('.header ul').find('a').eq(0).css('border-bottom','4px solid #38A479').siblings().css('border-bottom','4px solid transparent');
+	        });
+	        $('footer').load('footer.html',function(){
+	        	$('.policy').click(function(){
+					var thId = $(this).attr('thId');
+					localStorage.setItem("policy",thId);
+				})
+				$('.introduce').click(function(){
+					var thId = $(this).attr('thId');
+					localStorage.setItem("introduce",thId);
+				})
+	        });
+			window.onload = function(){
+				$('.policy').click(function(){
+					$('.newNews').hide();
+					$('.newPolicy').show();
+				})
+				$('.information').click(function(){
+					$('.newNews').show();
+					$('.newPolicy').hide();
+				})
+				
+				$('.new-title li').click(function(){
+					$(this).addClass('active').siblings().removeClass('active');	
+				})
+				
+				
+				
+				$('.goodManage').click(function(){
+					$('.swiper-slide').find('div').text('云杉智慧');
+					
+					$(this).css({
+						'border-bottom':'5px solid #38A479',
+						'color':'#333333'
+					})
+					$('.goodStation').css({
+						'border-bottom':'5px solid transparent',
+						'color':'#999999'
+					})
+				})
+				$('.goodStation').click(function(){
+					$('.swiper-slide').find('div').text('充电站');
+					console.log($('.swiper-slide').eq(1).find('img'))
+					$('.swiper-slide').eq(0).find('img').attr('src','img/first/stakeGroup1.jpg');
+					$('.swiper-slide').eq(1).find('img').attr('src','img/first/stakeGroup2.jpg');
+					$('.swiper-slide').eq(2).find('img').attr('src','img/first/stakeGroup3.jpg');
+					$('.swiper-slide').eq(3).find('img').attr('src','img/first/stakeGroup1.jpg');					
+					$('.swiper-slide').eq(4).find('img').attr('src','img/first/stakeGroup2.jpg');
+					$('.swiper-slide').eq(5).find('img').attr('src','img/first/stakeGroup3.jpg');
+					$('.swiper-slide').eq(6).find('img').attr('src','img/first/stakeGroup1.jpg');					
+					$('.swiper-slide').eq(7).find('img').attr('src','img/first/stakeGroup2.jpg');
+					$('.swiper-slide').eq(8).find('img').attr('src','img/first/stakeGroup3.jpg');
+					$('.swiper-slide').eq(9).find('img').attr('src','img/first/stakeGroup1.jpg');					
+					$('.swiper-slide').eq(10).find('img').attr('src','img/first/stakeGroup2.jpg');
+					$('.swiper-slide').eq(11).find('img').attr('src','img/first/stakeGroup3.jpg');
+					$('.swiper-slide').eq(0).find('div').text('公交企业');
+					$('.swiper-slide').eq(1).find('div').text('绿地乔治庄园企业');
+					$('.swiper-slide').eq(2).find('div').text('普天安徽企业');
+					$('.swiper-slide').eq(3).find('div').text('公交企业');				
+					$('.swiper-slide').eq(4).find('div').text('绿地乔治庄园企业');
+					$('.swiper-slide').eq(5).find('div').text('普天安徽企业');
+					$('.swiper-slide').eq(6).find('div').text('公交企业');					
+					$('.swiper-slide').eq(7).find('div').text('绿地乔治庄园企业');
+					$('.swiper-slide').eq(8).find('div').text('普天安徽企业');
+					$('.swiper-slide').eq(9).find('div').text('公交企业');					
+					$('.swiper-slide').eq(10).find('div').text('绿地乔治庄园企业');
+					$('.swiper-slide').eq(11).find('div').text('普天安徽企业');
+					$(this).css({
+						'border-bottom':'5px solid #38A479',
+						'color':'#333333'
+					})
+					$('.goodManage').css({
+						'border-bottom':'5px solid transparent',
+						'color':'#999999'
+					})
+				})
+				
+				$('.leave').find('img').click(function(){
+					localStorage.setItem('pagename','首页');	
+					localStorage.setItem('page','first.html');	
+	            })
+				
+				
+				
+				$('.application').click(function(){
+					localStorage.setItem("introduce","1");
+				})
+				
+				$('.new-title').find('li').hover(function(){
+					$(this).css('color','#333333')
+				},function(){
+					$(this).css('color','#999999')
+				})
+				$('.container').find('img').eq(0).hover(function(){
+				$(this).attr('src','img/first/seller1.png')
+				},function(){
+					$(this).attr('src','img/first/seller.png')
+				})
+				$('.container').find('img').eq(1).hover(function(){
+					$(this).attr('src','img/first/station1.png')
+				},function(){
+					$(this).attr('src','img/first/station.png')
+				})
+				$('.container').find('img').eq(2).hover(function(){
+					$(this).attr('src','img/first/dStation1.png')
+				},function(){
+					$(this).attr('src','img/first/dStation.png')
+				})
+				$('.container').find('img').eq(3).hover(function(){
+					$(this).attr('src','img/first/aStation1.png')
+				},function(){
+					$(this).attr('src','img/first/aStation.png')
+				})		
+				var listData = {
+					pageNum:1,
+					pagesize:3
+				};
+	
+				var swiper = new Swiper('.swiper-container', {
+			        slidesPerView: 3,
+					prevButton:'.swiper-button-prev',
+					nextButton:'.swiper-button-next',
+			        autoplay:5000,
+					loop:true,
+			    });
+		     	$('.swiper-container').hover(function(){
+			    	swiper.stopAutoplay();
+			    },function(){
+			    	swiper.startAutoplay();
+			    })
+			}
+			
+			
+	     
+	     
+		</script>
+	</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>合肥市充电管理平台-下载APP</title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/globalContext.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				font-family: "微软雅黑" ! important;
+			}
+			ul,li{
+				list-style: none;
+								
+			}
+			a{
+				text-decoration: none;
+			}
+			.header li{
+				float:left;
+				padding:33px 15px 0px;
+				
+			}
+			.header img{
+				float:left;
+				
+			}
+			.header>.nav>a{
+				display: inline-block;
+				width: 121px;
+				height: 40px;
+				border: none!important;
+				float: left;
+				padding-top: 16px;
+			    cursor: pointer;
+			}
+			.header ul{
+				height: 80px;
+				display: inline-block;
+				float: right;
+			}
+			.header a{
+				text-decoration: none;
+				font-family: '微软雅黑';
+				font-size: 16px;
+				color: #666666;	
+				padding-bottom: 23px;
+				border-bottom: 4px solid transparent;
+			}
+			.header a:hover{
+				color: #38A479;
+			}
+			
+			.header{
+				height: 80px;
+			}
+			.nav{
+				width: 1200px;
+				margin: 0 auto;
+				height: 80px;
+			}
+			#download{
+				background: url(img/other/load/loadAPP.png);
+				width: 1200px;
+				height: 920px;
+				margin: 0 auto;
+				margin-bottom: 86px;
+				border-top: 1px solid transparent;
+			}
+			#download a.iphone{
+				margin-top: 48px;
+			}
+			#download a{
+				width: 196px;
+				/*background: red;*/
+				display: inline-block;
+				height: 50px;
+				margin-bottom: 8px;
+				margin-left: 768px;
+			}
+			footer{
+				background: #3e4d4d;
+				height: 367px;
+				border: 1px solid transparent;
+			}
+			footer>div{
+				width: 1200px;
+				height: 367px;
+				margin: 0 auto;
+			}
+			footer table{
+				margin-top: 62px;
+				border-right: 1px dashed #999999;
+				float: left;
+			}
+			footer thead td{
+				padding-right: 58px;
+				padding-bottom: 12px;
+			}
+			footer tbody td{
+				padding-top: 18px;
+			}
+			footer thead td{
+				font-size: 20px;
+				color:#FFFFFF;
+			}
+			footer tbody a{
+				font-size: 16px;
+				color: #AEAEAE;
+			}
+			footer tbody td a:hover{
+				color: #FFFFFF;
+			}
+			footer .we{
+				padding-right: 117px;
+			}
+			footer .right1{
+				float: left;
+				padding-top: 62px;
+				padding-left: 110px;
+				color: ;
+			}
+			footer .contact{
+				color: #FFFFFF;
+				font-size: 20px;
+				margin-bottom: 28px;
+			}
+			footer .phone{
+				color: #AEAEAE;
+				font-size: 30px;
+				margin-bottom: 20px;
+			}
+			footer .emails{
+				color: #AEAEAE;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			footer .address{
+				color: #AEAEAE;
+				font-size: 16px;
+			}
+			.leave{
+				position: relative;
+				width: 68px;
+				height: 68px;
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="leave.html" class="leave">
+			<img src="img/mapImg/leave.png" alt="" />
+		</a>
+		<div class="header">
+		</div>
+		<div id="download">
+			<a href="https://itunes.apple.com/us/app/yun-dian-zhuang/id1087258888?mt=8" class="iphone"></a>
+			<a href="http://a.app.qq.com/o/simple.jsp?pkgname=winsky.cn.electriccharge_winsky"></a>
+			
+		</div>
+		<footer>
+			
+		</footer>
+		<script type="text/javascript">	
+			 $('.header').load('header.html',function(){
+	            $('.header ul').find('a').eq(4).css('color','#38A479').siblings().css('color','#666666');
+	            $('.header ul').find('a').eq(4).css('border-bottom','4px solid #38A479').siblings().css('border-bottom','4px solid transparent');
+	        });
+			$('footer').load('footer.html',function(){
+        		$('.policy').click(function(){
+					var thId = $(this).attr('thId');
+					localStorage.setItem("policy",thId);
+				})
+				$('.introduce').click(function(){
+					var thId = $(this).attr('thId');
+					localStorage.setItem("introduce",thId);
+				})
+        	});
+        	
+        	
+			$('.leave').find('img').click(function(){
+				localStorage.setItem('pagename','下载App');	
+				localStorage.setItem('page','download.html');	
+          })
+		</script>
+	</body>
+</html>

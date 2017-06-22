@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>合肥市充电管理平台-电站地图</title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>	
+		<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+	    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=05c78f32893b32186d52208cd2dafd62"></script>
+	    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				font-family: "微软雅黑";
+				font-size: 14px;
+			}
+			ul,li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.header li{
+				float:left;
+				padding:33px 15px 0px;
+				
+			}
+			.header>.nav>a{
+				display: inline-block;
+				width: 121px;
+				height: 47px;
+				border: none!important;
+				float: left;
+				padding-top: 16px;
+			    cursor: pointer;
+			}
+			.nav>img {
+		    padding-top: 16px;
+			}
+			.header ul{
+				height: 80px;
+				display: inline-block;
+				float: right;
+			}
+			.header a{
+				text-decoration: none;
+				font-family: '微软雅黑';
+				font-size: 16px;
+				color: #666666;	
+				padding-bottom: 22px;
+				border-bottom: 4px solid transparent;
+			}
+			.header a:hover{
+				color: #38A479;
+			}
+			
+			.header{
+				height: 80px;
+				float: left;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			.nav{
+				width: 1200px;
+				margin: 0 auto;
+				height: 80px;
+			}
+			.maps{
+				display: flex;
+				position: relative;
+				overflow-x :auto;
+				float: left;
+			}
+			.beside{
+				width: 360px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 200;
+				box-shadow:  0px 0px 18px #999999 ; 				
+			}
+			.search ul{
+				display: flex;
+				justify-content:space-between;
+				width: 320px;
+				margin-left: 20px;
+			}
+			.search{
+				height: 136px;
+				background: #F7F7F7;
+			}
+			.search li{
+				display: inline-block;
+				list-style: none;
+				font-size: 14px;
+				color: #333333;
+				padding-top:10px;
+			}
+			.search li span{
+				font-size: 20px;
+				color: #38A479;
+				margin-left: 10px;
+				font-family: 'MicrosoftYaHei';
+			}
+			.search div span{
+				width: 50px;
+				display: inline-block;
+				position: absolute;
+				right: 0;
+				top:5px;
+			}
+			.search div span img{
+				margin-left: 20px;
+			}
+			.search div{
+				margin: 28px 30px 0;
+				background: #FFFFFF;
+				position: relative;
+			}
+			.search input{
+				outline:none;
+				border:1px solid #CCCCCC;
+				width: 291px;
+				height: 36px;				
+				padding-left:5px;
+				padding-right: 6px;			
+			}
+			.list>div{
+				margin-left: 30px;
+				margin-top: 20px;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				color: #666666;
+				border-bottom: 2px solid #38A479;
+				display: inline-block;
+				margin-bottom: 22px;
+				padding-bottom: 4px;
+				padding-right: 20px;
+				
+			}
+			
+			.list-parent{
+				overflow-x: hidden;
+				margin-left: 30px;
+			}
+			.list-parent>li>ul{
+				display: none;
+			}
+			.list-parent>li>div{
+				color: #999999;
+				font-size: 18px;
+				font-family: "微软雅黑";
+				margin-bottom: 10px;
+			}
+			.list-parent>li>div>div{
+				padding-right: 6px;	
+				width: 14px;
+				display: inline-block;
+							
+			}
+			.list-station{
+				padding-right: 20px;
+				margin-right: 20px;
+				
+			}
+			.list-station div{
+				font-size: 14px;
+				margin-left: 20px;
+			}
+			.list-name{
+				color: #38A479;
+				padding: 10px 0 5px 0;
+			}
+			.list-name1{
+				color: #666666;
+				padding: 5px 0 10px 0;
+				
+			}
+			.list-station img{
+				float:left;
+				padding: 13px 10px 0 0px;
+				padding-bottom: 30px;				
+			}
+			.list-address{
+				color: #666666;
+				padding-bottom: 9px;
+			}
+			.support{
+				padding: 20px 0 13px 0;
+				display: flex;
+				color: #666666;
+				justify-content:center;
+			}
+			.more{
+				padding-bottom: 18px;
+				display: flex;
+				justify-content:center;				
+			}
+			.besides-footer{
+				color: #F7F7F7;
+				background: #F7F7F7;
+			}
+			.more a{
+				color: #2C99FF;
+			}
+			.besides-footer>div{
+				font-size: 14px;
+			}
+			 #container{
+			 	position: absolute;
+			 	width: 840px;
+				left: 360px;
+				top: 0;
+				z-index: 199;
+			 	outline: none;
+		        height: 100%;
+		        margin: 0px;
+				position: relative;
+		     }
+		     .amap-info>div{
+		     	background: #FFFFFF;
+		     	position: relative;
+		     	box-shadow: 0px 0px 16px #999999;
+		     	border-radius: 3px;
+		     }
+				.amap-info>div>div{
+					width: 200px;
+		     		padding: 20px 20px 0;
+				}
+		     .name{
+		     	font-size: 18px;
+		     	color: #333333;
+		     	margin-bottom: 13px;
+		     	
+		     }
+		      .count {
+		      	height: 28px;
+		     	font-size: 14px;
+		     	color: #666666;
+		     	margin-bottom: 10px;
+		     }
+		     .count div{
+		     	display: inline-block;
+		     	margin-right: 20px;
+		     }
+		     
+		     .count span{
+		     	font-size: 20px;
+		     	color: #38A479;
+		     	margin-left: 11px;
+		     }
+		     .company1,.address{
+		     	font-size: 14px;
+		     	line-height: 20px;
+		     	color: #666666;
+		     	
+		     }
+		     .address{
+		     	margin-bottom: 20px;
+		     	}
+		     .company1{
+		     	margin-bottom: 10px;
+		     }
+		     
+		    .entry-trangle{
+		        position:absolute;
+		        left: 95px;
+		        bottom: -45px;
+		        width:0;
+		        height:0;
+		        border-top:30px solid #FFFFFF;
+		        border-left:30px solid transparent;
+		        border-right:30px solid transparent;
+		        border-bottom:30px solid transparent;
+		        z-index:1000;
+		    }
+		    .amap-info-sharp{
+		    	display: none;
+		    }
+		    .clearfix{
+		    	clear: both;
+		    }
+		    .delete{
+		    	display: inline-block;
+		    	height: 30px;
+		    	width: 30px;
+		    	position: absolute;
+				right: -15px;
+				top: -15px;
+				border-radius: 50%;
+				border: 1px solid #CCCCCC;
+				background: #FFFFFF;
+		    }
+		    .leave{
+				position: relative;
+				width: 68px;
+				height: 68px;
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				display: inline-block;
+				z-index: 10000;
+			}
+		    body{overflow:hidden}
+		</style>
+		<style>
+			.search .result { position:absolute; left:0; top:40px; width:100%; max-height:210px; margin:0; line-height:30px; border:1px solid #ccc; border-top:none; overflow-x:hidden; overflow-y:hidden; display:none; }
+			.search .result p { display:block; padding:0 5px; }
+			.search .result p:hover { background:#f1f1f1; }
+		</style>
+	</head>
+	<body >
+		<a href="leave.html" class="leave">
+			<img src="img/mapImg/leave.png" alt="" />
+		</a>
+		<!--<iframe src="header.html" scrolling="No" height="80" class="header" frameborder="0"></iframe>-->
+		<div class="header">
+					
+		</div>
+		<div class="maps">
+			<div class="beside">
+				<div class="search">
+					<ul>
+						<li class="station">充电站<span></span></li>
+						<li class="dStation">直流桩<span></span></li>
+						<li class="aStation">交流桩<span></span></li>
+					</ul>
+					<div style="position:relative">
+						<input type="text" id="tipinput" name="tipinput" placeholder="请输入关键字">
+						<div class="result"></div>
+					</div>
+					
+				</div>
+				<div class="list">
+					<div>
+						合肥市
+					</div>
+					<ul class="list-parent">
+						
+					</ul>
+				</div>
+				<div class="besides-footer">
+					<div class="support">
+						技术支持:云杉智慧新能源有限公司
+					</div>
+					<div class="more">
+						<a href="http://www.win-sky.com.cn/" target="_blank">了解更多</a>
+					</div>
+				</div>
+			</div>
+			<div id="container" tabindex="0">
+			</div>
+			
+		</div>
+		<script type="text/javascript" src="js/globalContext.js" charset="utf-8"></script>
+		    <script type="text/javascript">
+		    	 $('.header').load('header.html',function(){
+		            $('.header ul').find('a').eq(1).css('color','#38A479').siblings().css('color','#666666');
+		            $('.header ul').find('a').eq(1).css('border-bottom','4px solid #38A479').siblings().css('border-bottom','4px solid transparent');
+		        });
+		    	// 获取窗口宽度
+				if (window.innerWidth)
+				winWidth = window.innerWidth-20;
+				else if ((document.body) && (document.body.clientWidth))
+				winWidth = document.body.clientWidth-20;
+				if (window.innerHeight) 
+				winHeight = window.innerHeight; 
+				else if ((document.body) && (document.body.clientHeight)) 
+				winHeight = document.body.clientHeight;
+				console.log(winHeight);
+				winHeight3 = winHeight-385;
+				winWidth3 = winWidth-360;
+				console.log(winHeight3);
+				$('.list-parent').css('height',winHeight3);
+				$('#container').css('width',winWidth3);
+				$('.header').css('width',winWidth);
+				$('.maps').css('width',winWidth);
+				$('.maps').css('height',winHeight);
+				window.onresize = function () {
+					if (window.innerWidth)
+					winWidth1 = window.innerWidth-20;
+					else if ((document.body) && (document.body.clientWidth))
+					winWidth1 = document.body.clientWidth-20;
+					if (window.innerHeight) 
+					winHeight1 = window.innerHeight; 
+					else if ((document.body) && (document.body.clientHeight)) 
+					winHeight1 = document.body.clientHeight;
+					$('.maps').css('width',winWidth1);
+					$('.maps').css('height',winHeight1);
+					winHeight2 = winHeight1-385;
+					winWidth2 = winWidth1-360;
+					console.log(winHeight2);
+					$('.header').css('width',winWidth1);
+					$('.list-parent').css('height',winHeight2);
+					$('#container').css('width',winWidth2);
+				}
+				
+		    	document.getElementById("tipinput").style.backgroundColor = "#ffffff";
+		    	$('div.list').css('cursor','pointer')
+		    	console.log($('.amap-info-content'))
+		        var map = new AMap.Map('container',{
+		            resizeEnable: true,
+		            zoom: 12,
+		            center: [117.282699, 31.866942],
+					keyboardEnable: false
+		        });
+
+				document.getElementById("tipinput").oninput = function(){
+					var keyWords = $("#tipinput").val();
+					if(keyWords.length == 0){
+						$(".result").hide();
+					}else{
+						$.getJSON('http://restapi.amap.com/v3/assistant/inputtips?&key=05c78f32893b32186d52208cd2dafd62&keywords=安徽省合肥市'+ keyWords +'', function(data){
+							if(data.status == '1'){
+								var html = '';
+								$.each(data.tips, function(i,item){
+									console.log(item)
+									var lnglat = item.location.toString() ? item.location.split(",") : ['',''];
+									html += '<p lng="'+ lnglat[0] +'" lat="'+ lnglat[1] +'">'+ item.name +'</p>'
+								});
+								$(".result").show().empty().append(html);
+							}
+						});
+					}
+				}
+
+				var loctionMarker;
+				$(".result").on('click', 'p', function(){
+					$("#tipinput").val($(this).text());
+					if(typeof(loctionMarker) == 'object'){
+						map.remove(loctionMarker);
+					}
+					if($(this).attr("lng")){
+						var lnglat = [$(this).attr("lng"), $(this).attr("lat")]
+						map.setZoomAndCenter(14, lnglat);
+						loctionMarker = new AMap.Marker({
+							icon:"img/mapImg/tz.svg", 
+							zIndex:100,
+							position: lnglat,
+							map:map
+						});
+					}else{
+						var name = $(this).text();
+						map.setCity(name);
+						loctionMarker = new AMap.Marker({
+							icon:"img/mapImg/tz.svg", 
+							zIndex:1001,
+							map:map									     
+						});
+					}
+					loctionMarker.setMap(map);
+					$(".result").hide();
+				})
+		        
+				$('.list-parent').on('click','div.area',function(){
+					$(this).siblings('ul').show();
+					$(this).addClass('on');
+					$(this).css('color','#333333');
+					$(this).find('img').prop('src','img/mapImg/open.png');
+				})
+				$('.list-parent').on('mouseover','div.area',function(){
+					$(this).css('color','#333333');
+					$(this).parent('li').siblings().find('div.area').css('color','#999999');
+					$(this).parent('li').siblings().find('div.on').css('color','#333333');
+				})
+				$('.list-parent').on('mouseout','div.area',function(){
+					$('div.area').css('color','#999999');
+					$('div.on').css('color','#333333');
+				})
+				$('.list-parent').on('click','div.on',function(){
+					console.log(1)
+					$(this).siblings('ul').hide();
+					$(this).removeClass('on');
+					$(this).css('color','#999999');
+					$(this).find('img').prop('src','img/mapImg/close.png');
+				})
+				
+				$('.search input').on('focus',function(){
+					$(this).css('border','1px solid #38A479')
+				})
+				$('.search input').on('blur',function(){
+					$(this).css('border','1px solid #CCCCCC')
+				})
+				var marker1 = new AMap.Marker({
+   					icon:"img/mapImg/get.png", 
+   					offset: new AMap.Pixel(-10, -36),
+   					zIndex:1000,
+				    map:map//创建时直接赋予map属性									     
+				});
+				marker1.hide();
+				 
+				 var infoWindow;
+				$('.list-parent').on('click','li.list-station',function(){
+					$this = $(this);
+					console.log($this)					
+					var myId = $this.attr('id');
+					var myP = $this.attr('position').split(',');
+					var myDetails = $this.attr('details').split(',');
+					console.log(myP);
+					$this.css('background','#f7f7f7').siblings().css('background','#ffffff');
+        			marker1.setPosition([myP[1],myP[0]]); //更新点标记位置
+					marker1.show();
+					console.log(marker1)
+					var info=[];
+					info.push('<div class="name">'+myDetails[0]+'</div>');
+		   			info.push('<div class="count">'+'<div>直流桩<span>'+myDetails[1]+'</span></div>'+'<div>交流桩<span>'+myDetails[2]+'</span></div>'+'<div class="clearfix"></div>'+'</div>');
+			   		info.push('<div class="company1">'+myDetails[3]+'</div>');
+				   	info.push('<div class="address">'+myDetails[4]+'</div>');
+				   	info.push('<div class="entry-trangle"></div>');
+					info.push('<a href = "javascript:;" class="delete"><img src="img/mapImg/remove.png"></a>');
+			   		var infoWindow = new AMap.InfoWindow({
+					    isCustom: true,  //使用自定义窗体
+						content: info.join(""),
+					    offset: new AMap.Pixel(-0, -50)//-113, -140
+					});
+				   	infoWindow.open(map, [myP[1],myP[0]]);
+				   	 map.setZoomAndCenter(12, [myP[1],myP[0]]);
+				})
+				getEleStation();
+				function getEleStation(){
+					map.setZoom(12)
+					$('ul.list-parent').html('');
+					var listData = {};
+					listData.searchname = $('.search').find('input').val();
+					console.log(listData)
+					$.ajax({
+						url:root+'/cityplat_web/stakeGroup/getCityStationTree.do',
+	            		type:'get',
+	            		data:listData,
+	                    dataType:'json',
+	                    success:function(res){
+	                    	console.log(res)
+	                    	 if(res.requestCode==0 ){
+	                    	 	var dataArr = res.data;
+	                    	 	var parentLi = '';
+	                    	 	var count = 0;
+	                    	 	var dCount = 0;
+	                    	 	var aCount = 0;
+	                    	 	$.each(dataArr,function(index,item){
+	                    	 		var areaName = item.areaName;
+	                    	 		var stakeGroups = item.stakeGroups; 
+	                    	 		var childUl = '';
+	                    	 		$.each(stakeGroups,function(index,item){	                    	 			
+	                    	 			count++;
+	                    	 			dCount += item.dcStakeCount;
+	                    	 			aCount += item.acStakeCount;
+	                    	 			childUl += 	'<li class="list-station" company = "'+ item.name+'" id = "'+item.id+'" position="'+item.latitude+","+item.longitude+'" details = "'+item.name+","+item.dcStakeCount+","+item.acStakeCount+","+item.stakeOperatorName+","+item.address+'">'+'<div><img src="img/mapImg/listPosition.png"/>'+
+	                 	 							'<div class="list-name">'+item.name+'</div>'+
+	                 	 							'<div class="list-name1">'+item.address+'</div>'+
+	                 	 							'</div></li>' ;			
+	                 	 				marker = new AMap.Marker({
+	                 	 					icon: new AMap.Icon({            
+									            image: "img/mapImg/Ytime.png"
+									        }) ,
+											zIndex:200,
+										    position: [item.longitude, item.latitude],//marker所在的位置
+										    map:map//创建时直接赋予map属性									     
+										});
+										marker.setMap(map);
+										marker.on('click', function(e){
+                                              var currentZoom = map.getZoom();
+											map.setZoomAndCenter(currentZoom, e.target.getPosition());
+											var _lnglat = e.lnglat.lng+','+e.lnglat.lat
+										 	var content=[];
+											content.push('<div class="name">'+item.name+'</div>');
+								   			content.push('<div class="count">'+'<div>直流桩<span>'+item.dcStakeCount+'</span></div>'+'<div>交流桩<span>'+item.acStakeCount+'</span></div>'+'<div class="clearfix"></div>'+'</div>');
+									   		content.push('<div class="company1">'+item.stakeOperatorName+'</div>');
+										   	content.push('<div class="address">'+item.address+'</div>');
+										   	content.push('<div class="entry-trangle"></div>');
+										   	content.push('<a href = "javascript:;" class="delete"><img src="img/mapImg/remove.png"></a>');
+										   	var infoWindow = new AMap.InfoWindow({
+											    isCustom: true,  //使用自定义窗体
+												content: content.join(""),
+											    offset: new AMap.Pixel(-0, -50)//-113, -140
+											});
+										 	infoWindow.open(map, e.target.getPosition());
+										 	marker1.setPosition(e.target.getPosition()); //更新点标记位置
+											marker1.show();
+										 	
+										 });
+	                    	 		})
+	                    	 		parentLi += '<li><div class="area"><div><img src="img/mapImg/close.png" /></div>'+areaName+'</div><ul class="list-child">'+childUl+'</ul></li>'
+	                    	 	})
+	                    	 	$('li.list-station').each(function(){
+					    			if($('li.list-station').attr('company')==$('#ok').val()){
+						    			console.log('$');
+						    			$('li.list-station').click();
+						    		}
+					    		})
+	                    	 	$('ul.list-parent').append(parentLi);
+	                    	 	$('.station').find('span').html(count);
+	                    	 	$('.dStation').find('span').html(dCount);
+	                    	 	$('.aStation').find('span').html(aCount);
+	                    	 	
+	                    	}
+	                    	
+	                    }
+					})
+				}
+				$('#container').on('click','.delete',function(){
+					$(this).parents('.amap-info>div').hide();
+				})
+				
+				$('.leave').find('img').click(function(){
+					localStorage.setItem('pagename','电站地图');	
+					localStorage.setItem('page','map.html');	
+	           })
+		    </script>
+		
+	</body>
+</html>

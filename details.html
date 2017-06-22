@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="UTF-8">
+			<script src="js/globalContext.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			ul,li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.header li{
+				float:left;
+				padding:33px 15px 0px;
+				
+			}
+			.header>.nav>a{
+				display: inline-block;
+				width: 121px;
+				height: 47px;
+				border: none!important;
+				float: left;
+				padding-top: 16px;
+			    cursor: pointer;
+			}
+			.header ul{
+				height: 80px;
+				display: inline-block;
+				float: right;
+				/*margin-left: 574px;*/
+			}
+			.header a{
+				text-decoration: none;
+				font-family: '微软雅黑';
+				font-size: 16px;
+				color: #666666;	
+				padding-bottom: 22px;
+				border-bottom: 4px solid transparent;
+			}
+			.header a:hover{
+				color: #38A479;
+			}
+			
+			.header{
+				height: 80px;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			.header .nav{
+				width: 1200px;
+				margin: 0 auto;
+				height: 80px;
+			}
+			.all{
+				/*width: 1920px;*/
+				/*display: flex;
+				justify-content: center;*/
+			}
+			.main{
+				margin: 0 auto;
+				width: 1200px;
+				position: relative;
+			}
+			.nav{
+				font-size: 16px;
+				color: #333333;
+				margin: 23px 0 20px 0;
+				
+			}
+			.nav span:nth-child(1) a{
+				color: #999999;
+			}
+			.nav span:nth-child(2){
+				margin: 0 20px;
+			}
+			.news{
+				background: #F7F7F7;
+				/*display: none;*/
+				
+			}
+			.news1{
+				background: #FFFFFF;
+				border-top: 1px solid #CCCCCC;
+				padding-top: 20px;
+				width: 1200px;
+				margin: 0 auto;
+				overflow: hidden;
+				padding-bottom: 108px;
+			}
+			.news1 .title{
+				text-align: center;
+				font-size: 24px;
+				line-height: 30px;
+				color: #333333;
+			}
+			.news1 .source{
+				text-align: center;
+				font-size: 12px;
+				line-height: 30px;
+				color: #999999;
+			}
+			.source>span{
+				margin-right: 30px;
+			}
+			.news1 p{
+				min-height: 400px;
+			}
+			.clearbox{
+				clear: both;
+			}
+			.page{
+				display: inline-block;
+				margin-top: 60px;
+				margin-bottom: 190px;
+			}
+			.page .num,.page .next,.page .prev{
+				width: 30px;
+				height: 30px;
+				display: inline-block;
+				vertical-align: top;
+				text-align: center;
+				line-height: 30px;	
+			}
+			.page div{
+				display: inline-block;
+			}
+			/*body{overflow-x:hidden}*/
+			div.on{
+				background:#38A479;
+			}
+			.beside .new{
+				background:#38A479;
+			}
+			.buttom{
+				overflow: hidden;
+			}
+			footer{
+				/*width: 1920px;*/
+				background: #3e4d4d;
+				height: 367px;
+				border: 1px solid transparent;
+			}
+			footer>div{
+				width: 1200px;
+				height: 367px;
+				margin: 0 auto;
+			}
+			footer table{
+				/*margin-left: 360px;*/
+				margin-top: 62px;
+				border-right: 1px dashed #999999;
+				float: left;
+			}
+			footer thead td{
+				font-size: 18px;
+				color: #FFFFFF;
+				padding-right: 58px;
+				padding-bottom: 12px;
+			}
+			footer tbody td{
+				padding-top: 18px;
+				color: #AEAEAE;
+				font-size: 16px;
+				
+			}
+			footer thead a{
+				font-size: 20px;
+				color:#FFFFFF;
+			}
+			footer tbody a{
+				font-size: 16px;
+				color: #AEAEAE;
+			}
+			footer tbody td a:hover{
+				color: #FFFFFF;
+			}
+			footer .we{
+				padding-right: 117px;
+			}
+			footer .right1{
+				float: left;
+				padding-top: 62px;
+				padding-left: 110px;
+				color: ;
+			}
+			footer .contact{
+				color: #FFFFFF;
+				font-size: 20px;
+				margin-bottom: 28px;
+			}
+			footer .phone{
+				color: #AEAEAE;
+				font-size: 30px;
+				margin-bottom: 20px;
+			}
+			footer .emails{
+				color: #AEAEAE;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			footer .address{
+				color: #AEAEAE;
+				font-size: 16px;
+			}
+			.leave{
+				width: 68px;
+				height: 68px;
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				display: inline-block;
+			}
+			.pages{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="leave.html" class="leave">
+			<img src="img/mapImg/leave.png" alt="" />
+		</a>
+		<script src="js/jquery-2.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--<iframe src="header.html" scrolling="No" height="80" class="header" frameborder="0"></iframe>-->
+		<div class="header">
+			<div class="nav">
+				<a href="first.html"><img src="img/mapImg/logo.png" alt="" /></a>
+				<ul>
+					<li><a href="policy.html">政策资讯</a></li>
+					<li><a href="map.html">电站地图</a></li>
+					<li><a href="policy.html">政策资讯</a></li>
+					<li><a href="introduce1.html">平台介绍</a></li>
+					<li><a href="download.html">下载APP</a></li>
+				</ul>
+			</div>			
+		</div>
+		<div class="all">
+			<div class="main">
+				<div class="nav">
+					<span><a href="policy.html">政策资讯</a></span>
+					<span><img src="img/mapImg/close.png" alt="" /></span>
+					<span>招标公告</span>
+				</div>
+				<div class="news">
+					<div class="news1">
+						<div class="title">
+							特斯拉汽车订单破百亿背后的秘密，以及国产化后能否成为机车
+						</div>
+						<div class="source">
+							<span>来源:<span>新华网</span></span>2017年4月17日
+						</div>
+						<p></p>
+					</div>
+					
+				</div>
+				<!--<a href="leave.html" class="leave">
+					<img src="img/mapImg/leave.png" alt="" />
+				</a>-->
+			</div>
+			
+		</div>
+		<footer>
+			<div>
+				<table>
+					<thead>
+						<tr>
+							<td>平台产品</td>
+							<td>电站地图</td>
+							<td>政策资讯</td>
+							<td>平台介绍</td>
+							<td class="we">关注我们</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="download.html">应用下载</a></td>
+							<td><a href="map1.html">电站地图</a></td>
+							<td><a href="policy.html" id="policy1">政策汇编</a></td>
+							<td><a href="introduce1.html" id="introduce1">关于我们</a></td>
+							<td rowspan="3"><img src="img/other/load/yunshan.png" alt="" /></td>
+						</tr>
+						<tr>
+							<td><a href=""></a></td>
+							<td><a href=""></a></td>
+							<td><a href="policy.html" id="policy2">新闻资讯</a></td>
+							<td><a href="introduce1.html" id="introduce2">接入指南</a></td>
+							<!--<td><a href=""></a></td>-->
+						</tr>
+						<tr>
+							<td><a href=""></a></td>
+							<td><a href=""></a></td>
+							<td><a href="policy.html" id="policy3">最新活动</a></td>
+							<td><a href=""></a></td>
+							<!--<td><a href=""></a></td>-->
+						</tr>
+						<tr>
+							<td><a href=""></a></td>
+							<td><a href=""></a></td>
+							<td><a href="policy.html" id="policy4">招标公告</a></td>
+							<td><a href=""></a></td>
+							<!--<td><a href=""></a></td>-->
+						</tr>
+						<tr>
+							<td><a href=""></a></td>
+							<td><a href=""></a></td>
+							<td><a href="policy.html" id="policy5">行业标准</a></td>
+							<td><a href=""></a></td>
+							<!--<td><a href=""></a></td>-->
+						</tr>
+					</tbody>					
+				</table>
+				<div class="right1">
+					<div class="contact">联系我们</div>
+					<div class="phone">400-12345678</div>
+					<div class="emails">hefei@winsky.com.cn</div>
+					<div class="address">合肥市高新区港汇广场A座</div>
+				</div>
+			</div>
+			
+		</footer>
+		<script type="text/javascript" src="js/globalContext.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			var listData = {
+				pageNum:1,
+				pagesize:1
+//				infoType:1
+			};
+			$(function(){
+				
+				$('.leave').find('img').click(function(){
+					localStorage.setItem('name','政策资讯');				
+	            })
+				$('.nav').find('span').eq(0).click(function(){
+					$('.new').css('background','#38A479').siblings().css('background','#F7F7F7');
+					$('.new').css('color','#FFFFFF').siblings().css('color','black');
+					$('buttom').show().siblings('.news').hide();
+					$('.nav').find('span').eq(2).text('最新活动');
+				})
+				
+				
+			        
+			    $('#policy1').click(function(){
+					localStorage.setItem("policy","3");
+					console.log(localStorage.getItem("policy"))
+				})
+				$('#policy2').click(function(){
+					localStorage.setItem("policy","2");
+					console.log(localStorage.getItem("policy"))
+				})
+				$('#policy3').click(function(){
+					localStorage.setItem("policy","0");
+					console.log(localStorage.getItem("policy"))
+				})
+				$('#policy4').click(function(){
+					localStorage.setItem("policy","1");
+					console.log(localStorage.getItem("policy"))
+				})
+				$('#policy5').click(function(){
+					localStorage.setItem("policy","4");
+					console.log(localStorage.getItem("policy"))
+				})
+				$('#introduce1').click(function(){
+					localStorage.setItem("introduce","0");
+					console.log(localStorage.getItem("policy"))
+				})
+				$('#introduce2').click(function(){
+					localStorage.setItem("introduce","1");
+					console.log(localStorage.getItem("policy"))
+				})
+	      })
+		</script>
+	</body>
+</html>
+

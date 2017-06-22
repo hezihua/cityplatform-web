@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>合肥市充电管理平台-意见留言</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			ul,li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.header li{
+				float:left;
+				padding:33px 15px 0px;
+				
+			}
+			.header>.nav>a{
+				display: inline-block;	
+				width: 121px;
+				height: 47px;
+				border: none!important;
+				float: left;
+				padding-top: 16px;
+			    cursor: pointer;
+			}
+			.header ul{
+				height: 80px;
+				display: inline-block;
+				float: right;
+			}
+			.header a{
+				text-decoration: none;
+				font-family: '微软雅黑';
+				font-size: 16px;
+				color: #666666;	
+				padding-bottom: 22px;
+				border-bottom: 4px solid transparent;
+			}
+			.header a:hover{
+				color: #38A479;
+			}
+			
+			.header{
+				height: 80px;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			.header .nav{
+				width: 1200px;
+				margin: 0 auto;
+				height: 80px;
+			}
+			.all{
+				margin-bottom: 10px;
+			}
+			.main{
+				margin: 0 auto;
+				width: 1200px;
+			}
+			.nav{
+				font-size: 16px;
+				color: #333333;
+				margin: 23px 0 20px 0;
+			}
+			.nav .link{
+				cursor:pointer;}
+			.nav span a,.nav span{
+				color: #999999;
+			}
+			.nav span:nth-child(5){
+				color: #333333;
+			}
+			.nav span:nth-child(2),.nav span:nth-child(4){
+				margin: 0 20px;
+			}
+			.beside{
+				width: 320px;
+				background: #F7F7F7;
+				float: left;
+				cursor:pointer;
+				/*margin-right: 40px;*/	
+				height: 160px;			
+			}
+			.beside li{
+				display: flex;
+				justify-content: center;
+				align-items:center;
+				height: 80px;
+				text-align: center;
+				font-size: 20px;
+				color: #333333;
+				width: 320px;
+			}
+			.beside li:hover{
+				color: #FFFFFF;
+				background: #38A479;
+			}
+			.want{
+				width: 800px;
+				float: left;
+				border-top: 1px solid #CCCCCC;
+				margin-left: 40px;
+				display: none;
+			}
+			.want .theme {
+				width: 783px;
+				outline:none;
+				height: 40px;
+				background: #F7F7F7;
+				padding-left: 17px;
+				margin-bottom: 20px;
+				border: 1px solid #CCCCCC;				
+			}
+			.want textarea{
+				width: 780px;
+				outline:none;
+				background: #F7F7F7;
+				padding-top: 20px;
+				padding-left: 20px;
+				margin-bottom: 20px;
+				border: 1px solid #CCCCCC;
+			}
+			.want .radios{
+				margin: 20px 0;
+			}
+			#commit:hover{
+				background: #42C390;
+			}
+			.radios label{
+				font-size: 20px;
+				color: #333333s;
+				margin-right: 60px;
+				
+			}
+			.radios label input{
+				margin-right: 13px;
+			}
+			.niming {
+				display: block;
+				font-size: 20px;
+				color: #333333;
+				padding-bottom: 20px;
+			}
+			input[name="niming"]{
+				margin-right: 15px;
+			}
+			.people,form .phone{
+				outline:none;
+				border: 1px solid #CCCCCC;	
+				background: #F7F7F7;
+				width: 282px;
+				height: 40px;
+				margin-bottom: 20px;
+				padding-left: 16px;
+			}
+			.ma{
+				outline:none;
+				padding-left: 16px;
+				border: 1px solid #CCCCCC;	
+				background: #F7F7F7;
+				width: 182px;
+				height: 40px;
+				margin-bottom: 20px;
+			}
+			#ma{
+				width: 88px;
+				height: 40px;
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 10px;
+				border: 1px solid #CCCCCC;
+			}
+			.look{
+				min-height: 600px;
+			}
+			.looks{
+				flex-grow: 1;
+			}
+			.content{
+				display: flex;
+				position: relative;
+				
+			}
+			.card{
+				width: 358px;
+				height: 238px;
+				padding: 20px 20px 0 20px;
+				border: 1px solid #CCCCCC;
+				margin-left: 20px;
+				margin-bottom: 20px;
+				float: left;
+				position: relative;
+				
+			}
+			.card div:nth-child(1) img,.details div:nth-child(1) img{
+				float: left;
+			}
+			.card div:nth-child(1) span:nth-child(3){
+				color: #999999;
+			}
+			.card:hover{
+				box-shadow: 0px 5px 14px rgba(56, 164, 121, 0.4);
+				border: 1px solid #55e9a9; 
+			}
+			.card .title{
+				/*height: 60px;*/
+				
+			}
+			.card div:nth-child(1),.details>div:nth-child(1){
+				margin-bottom: 13px;
+			}
+			.card div:nth-child(1) span,.details div:nth-child(1) span{
+				vertical-align: top;
+				display: inline-block;
+				height: 50px;
+				line-height: 50px;
+				margin-left: 20px;
+			}
+			.card div:nth-child(1) span:nth-child(3),.details div:nth-child(1) span:nth-child(3){
+				float: right;
+			}
+			.card div:nth-child(1) span:nth-child(2),.details div:nth-child(1) span:nth-child(2){				
+				float: left;
+			}
+			.clearbox{
+				clear: both;
+			}
+			.look .title{
+				font-size: 20px;
+				line-height: 30px;
+				color: #333333;
+			}
+			.look .title span{
+				color:#38A479;
+				margin-left: -10px;
+			}
+			.container{
+				margin: 10px 0 10px 0;
+				font-size: 16px;
+				line-height: 26px;
+				color: #999999;
+				height: 52px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				-webkit-line-clamp:2;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				word-break:break-all;
+			}
+			.foot{
+				position: absolute;
+				left: 20px;
+				bottom: 15px;
+			}
+			.foot div,.foot a{
+				vertical-align: middle;
+				font-size: 16px;
+			}
+			.foot img{
+				vertical-align:middle;
+				
+			}
+			.foot div{
+				line-height: 26px;
+				display: inline-block;
+				margin-left: 14px;
+			}
+			.foot a{
+				display: inline-block;
+				line-height: 30px;
+				/*float: right;*/
+				margin-left: 210px;
+				color: #30A5FF;
+			}
+			.details{
+				width: 520px;
+				padding: 40px 40px 0 40px;
+				position: fixed;
+				left: 30%;
+				top: 20%;
+				float: left;
+				background: #FFFFFF;
+				z-index: 1000;
+				display: none;
+			}
+			.details>img{
+				position: absolute;				
+				right: -10px;
+				top: -10px;
+			}
+			#detail_type{
+				margin-left: -10px;
+			}
+			.alertmsg{
+				margin: 350px auto;
+			    width: 311px;
+			    background: #FFFFFF;
+			    z-index: 1000;
+			    display: none;
+			    height: 160px;
+				display: none;
+			}
+			.details>div:nth-child(1){
+				border-bottom: 1px solid #CCCCCC;
+				padding-bottom: 20px;
+			}
+			#detail_content{
+				word-break:break-all;
+			}
+			.details>div:nth-child(2) div:nth-child(1){
+				font-size: 20px;
+				line-height: 30px;
+				color: #38A479;
+				padding-top: 20px;
+			}
+			.details>div:nth-child(2) div:nth-child(2){
+				font-size: 20px;
+				line-height: 30px;
+				color: #333333;
+				padding: 10px 0 38px 0;
+			}
+			.details>div:nth-child(2) p:nth-child(3),.details>div:nth-child(3) p:nth-child(2){
+				font-size: 16px;
+				line-height: 26px;
+				color: #999999;
+				padding: 0 0 40px 0;				
+				text-indent:40px
+			}
+			.details>div:nth-child(2) p:nth-child(3){
+				border-bottom: 1px solid #CCCCCC;
+			}
+			.details>div:nth-child(3) div:nth-child(1){
+				padding: 40px 0 35px 0;
+			}
+			.details>div:nth-child(3) div:nth-child(1) img{
+				margin-right: 10px;
+			}
+			.shade{
+				display: none;
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				background: rgba(0,13,15,0.5);
+				z-index: 100;
+			}
+			.errorshade{
+				display: none;
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				background: rgba(0,13,15,0.5);
+				z-index: 100;
+			}
+			/*body{overflow-x:hidden}*/
+			.look:after {
+			    clear:both;
+			    content:'';
+			    display:block;
+			    width: 0;
+			    height: 0;
+			    visibility:hidden;
+			}
+			.pages{
+				width: 100%;
+				text-align: center;
+				cursor:pointer;
+			} 
+			.page{
+				display: inline-block;
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+			.page .num,.page .next,.page .prev{
+				width: 30px;
+				height: 30px;
+				display: inline-block;
+				vertical-align: top;
+				text-align: center;
+				line-height: 30px;	
+			}
+			.page div{
+				display: inline-block;
+			}
+			div.on{
+				background:#38A479;
+				color: #FFFFFF;
+			}
+			#look{
+				background: rgb(56, 164, 121);
+				color:  rgb(255, 255, 255);
+				
+			}
+			.leave{
+				width: 68px;
+				height: 68px;
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				display: inline-block;
+			}
+			input[type="button"]{
+				border: 1px solid transparent;
+				width: 100px;
+				height: 35px;
+				color: #FFFFFF;
+				font-size: 16px;
+				background: #38A479;
+				margin-bottom: 230px;
+			}
+			footer{
+				/*width: 1920px;*/
+				background: #3e4d4d;
+				height: 367px;
+				border: 1px solid transparent;
+			}
+			footer>div{
+				width: 1200px;
+				height: 367px;
+				margin: 0 auto;
+			}
+			footer table{
+				margin-top: 62px;
+				border-right: 1px dashed #999999;
+				float: left;
+			}
+			footer thead td{
+				padding-right: 58px;
+				padding-bottom: 12px;
+			}
+			footer tbody td{
+				padding-top: 18px;
+			}
+			footer thead td{
+				font-size: 20px;
+				color:#FFFFFF;
+			}
+			footer tbody a{
+				font-size: 16px;
+				color: #AEAEAE;
+			}
+			footer tbody td a:hover{
+				color: #FFFFFF;
+			}
+			footer .we{
+				padding-right: 117px;
+			}
+			footer .right1{
+				float: left;
+				padding-top: 62px;
+				padding-left: 110px;
+				color: ;
+			}
+			footer .contact{
+				color: #FFFFFF;
+				font-size: 20px;
+				margin-bottom: 28px;
+			}
+			footer .phone{
+				color: #AEAEAE;
+				font-size: 30px;
+				margin-bottom: 20px;
+			}
+			footer .emails{
+				color: #AEAEAE;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			footer .address{
+				color: #AEAEAE;
+				font-size: 16px;
+			}
+			body .leave{
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+					
+		</div>
+		<div class="all">
+			<div class="main">
+				<div class="nav">
+					<span class="link"><a href="">留言</a></span>
+					<span><img src="img/mapImg/close.png" alt="" /></span>
+					<span>留言</span>
+					<span><img src="img/mapImg/close.png" alt="" /></span>
+					<span>查看留言</span>
+				</div>
+				<div class="content">
+					<div class="beside">
+						<ul>
+							<li id="look">查看留言</li>
+							<li id="want">我要留言</li>
+						</ul>
+					</div>
+					<div class="want">
+						<form action="">
+							<div class="radios">
+								<label><input name="msgType" type="radio" value="1" checked id="know"/>咨询 </label> 
+								<label><input name="msgType" type="radio" value="2" />投诉 </label> 
+								<label><input name="msgType" type="radio" value="3" />建议 </label> 
+							</div>
+							<input type="text" class="theme" placeholder="主题(最多24个字)" name="title"/>
+							<textarea name="content" rows="20" cols="" placeholder="请输入内容(最多255个字)"></textarea>
+							<div class="radios">
+								<label><input name="isAnonymous" type="checkbox" value="1" checked="true"  id="anonymous"/>匿名 </label> 
+							</div>
+							<div id="">
+								<input type="text" placeholder="联系人" class="people" name="contacter"/>
+							</div>
+							<div id="">
+								<input type="text" placeholder="联系电话" class="phone" name="contactPhone"/>
+							</div>
+							<div id="">
+								<input type="text" placeholder="验证码" class="ma"/><img  id="ma" title="点击刷新" />
+							</div>
+						</form>
+							<input type="button" id="commit" value="提交留言"/>
+						
+					</div>
+					<div class="looks">
+						<div class="look">
+							
+						</div>
+						<div class="pages">
+							<div class="page">
+								<div class="prev"><img src="img/other/policy/prev.png" alt="" /></div>
+								<div class="count">
+								</div>
+								
+								<div class="next"><img src="img/other/policy/next.png" alt="" /></div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+		
+		<div class="shade">
+			<div class="details">
+				<div>
+					<img src="img/other/leave/draw.png" alt="" />
+					<span id="detail_contacter"></span>
+					<span id="detail_time">2017-4-27</span>
+					<div class="clearbox"></div>
+				</div>
+				<div>
+					<div id="detail_type"></div>
+					<div id="detail_title"></div>
+					<p id="detail_content"></p>
+				</div>
+				<div id="detail_reply_div">
+					<div id="">
+						<img src="img/other/leave/reply.png" alt="" />平台回复 :
+					</div>
+					<p id="detail_reply"></p>
+				</div>
+				<img src="img/other/leave/close.png" alt="" />
+			</div>
+		</div>
+		<div class="errorshade">
+			<div class="alertmsg">
+				<div id="errormsg" style="text-align: center;padding-top: 27px;font-size: x-large;">
+				</div>
+				<div style="margin: 40px auto;text-align: center;"><input id="errorSubmit" type="button" value="确定" style="margin-bottom: 0;"></div>
+			</div>
+		</div>
+
+		<footer>	
+		</footer>
+        <script src="js/jquery-2.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="js/globalContext.js" charset="utf-8"></script>
+		<script type="text/javascript">
+
+        $(document).ready(function(){
+        	$("#anonymous").click(function(){
+        		console.log($(this).attr("checked"))
+        		var isCheck = $(this).prop('checked');
+        		if( isCheck ){
+        			$(this).val('1');
+        		}else{
+        			$(this).val('0');
+        		}
+			});
+        	console.log(1)
+        	$('.header').load('header.html');
+        	$('footer').load('footer.html',function(){
+        		$('.policy').click(function(){
+					var thId = $(this).attr('thId');
+					localStorage.setItem("policy",thId);
+				})
+				$('.introduce').click(function(){
+					var thId = $(this).attr('thId');
+					localStorage.setItem("introduce",thId);
+				})
+        	});
+            $('#ma').attr("src",root+"/servlet/validateCodeServlet");
+        });
+			
+			
+			
+			
+			$("input[type='button']").click(function(){
+			 	console.log(1)
+			});
+			
+			var listData = {
+				pageNum:1,
+				pagesize:8
+//				type:2
+			};
+			function getLeave(){
+				$.ajax({
+					url:root+"/cityplat_web/leavermsg/getLeaveMsgList.do",
+	        		type:'post',
+	        		data:listData,
+	                dataType:'json',
+	                success:function(res){
+	                	console.log(res)
+	                	console.log(listData);
+	                	if(res.requestCode == 0){
+	                		var data = res.data;
+	                		var list = data.list;
+	                		var total = data.total;
+	                		var pages = Math.ceil(total/listData.pagesize);
+	                		$('.count').attr('pages',pages);
+		                	console.log(list)
+		                	if(data.total==0){
+		                      	var img = '<img src="img/other/policy/no.png" alt="" id="img"/>'
+		                      	$('.look').css('text-align','center')
+		                      	$('.look').html(img)
+		                      }else{
+		                    		$('#img').remove()
+		                    		var card='';
+		                	$.each(list, function(index,item) {
+		                		 card += 	'<div class="card" auid = "gg">'+
+												'<div id="">'+
+													'<img src="img/other/leave/draw.png" alt="" />'+
+													'<span>'+(item.isAnonymousStr.length==11?(item.isAnonymousStr):(item.isAnonymousStr.substring(0,2)+''))+'</span>'+
+													'<span>'+item.leaveTimeStr+'</span>'+
+													'<div class="clearbox"></div>'+
+												'</div>'+
+												'<div class="title"><span>【'+item.msgTypeName+'】</span>'+item.title+'</div>'+
+												'<div class="container">'+item.content+'</div>'+
+												'<div class="foot">'+
+													'<img src="img/other/leave/reply.png" alt="" />'+
+													'<div thauid = "'+ item.replyStatus+'" calss="statu">'+item.replyStatusStr+'</div>'+
+													'<a href="javascript:;" class="detail" id="'+item.id+'">查看详情</a>'+
+												'</div>'+
+											'</div>'
+								
+							})
+		                	$('.look').html(card);
+		                	$('div[thauid=0]').css('color','#999999');
+		                	$('div[thauid=0]').siblings('img').attr('src','img/other/leave/noReply.png')
+							
+	                      }
+	                	}
+	                createPages(res);
+	            	}
+		    	})
+			}
+			console.log($('div[thauid="未回复"]'));
+			
+			
+			
+			function togglePagenav(isShow){
+				if(isShow)				
+					$('.prev,.next').show();
+				else
+					$('.prev,.next').hide();
+			}
+			function createPages(res){				
+				var pageStr = '';
+				$('.count').html('');
+				togglePagenav(false);
+            	if(res.requestCode == 0){
+            		var data = res.data;
+            		var total = data.total;
+            		var pages = data.pages;
+                    var dPages=data.pageNum;
+            		$('.count').attr('pages',pages);
+            		if(pages<=5){
+            			for(var i = 1;i<=pages;i++){
+	                		if(i==dPages){
+	                			pageStr += '<div class="num on" data = "'+i+'">'+i+'</div>'	
+	                		}else{
+	                		 	pageStr +='<div class="num" data = "'+i+'">'+i+'</div>';	
+	                		}	
+	                	}
+            		}
+            		else {
+            			if(dPages<=3){
+            				for(var i = 1;i<=5;i++){
+		                		if(i==dPages){
+		                			pageStr += '<div class="num on" data = "'+i+'">'+i+'</div>'	
+		                		}else if(i==5){
+		                			pageStr += '<span>...</span>'+'<div class="num" data = "'+pages+'">'+pages+'</div>'
+		                		}
+		                		else{
+		                		 	pageStr +='<div class="num" data = "'+i+'">'+i+'</div>'	
+		                		}	
+		                	}
+            			}
+            			else if(dPages==(pages-2)){
+		                			pageStr += '<div class="num" data = "'+1+'">'+1+'</div>'+'<span>...</span>';
+            				pageStr	+=	'<div class="num" data = "'+(dPages-1)+'">'+(dPages-1)+'</div>'+
+            							'<div class="num on" data = "'+dPages+'">'+dPages+'</div>'+
+            							'<div class="num" data = "'+(dPages+1)+'">'+(dPages+1)+'</div>'+
+            							'<div class="num" data = "'+pages+'">'+pages+'</div>'
+            			}
+            			else if(dPages==(pages-1)){
+                			pageStr += '<div class="num" data = "'+1+'">'+1+'</div>'+'<span>...</span>';
+            				pageStr	+=	'<div class="num" data = "'+(pages-3)+'">'+(pages-3)+'</div>'+
+            							'<div class="num" data = "'+(dPages-1)+'">'+(dPages-1)+'</div>'+
+            							'<div class="num on" data = "'+dPages+'">'+dPages+'</div>'+
+            							'<div class="num" data = "'+pages+'">'+pages+'</div>'
+            			}
+            			else if(dPages==pages){
+		                			pageStr += '<div class="num" data = "'+1+'">'+1+'</div>'+'<span>...</span>';
+            				pageStr	+=	'<div class="num" data = "'+(pages-3)+'">'+(pages-3)+'</div>'+
+            							'<div class="num" data = "'+(pages-2)+'">'+(pages-2)+'</div>'+
+            							'<div class="num" data = "'+(pages-1)+'">'+(pages-1)+'</div>'+
+            							'<div class="num on" data = "'+pages+'">'+pages+'</div>'
+            			}
+            			else{
+		                			pageStr += '<div class="num" data = "'+1+'">'+1+'</div>'+'<span>...</span>';
+            				pageStr	+=	'<div class="num" data = "'+(dPages-1)+'">'+(dPages-1)+'</div>'+
+            							'<div class="num on" data = "'+dPages+'">'+dPages+'</div>'+
+            							'<div class="num" data = "'+(dPages+1)+'">'+(dPages+1)+'</div>'+'<span>...</span>'+
+            							'<div class="num" data = "'+pages+'">'+pages+'</div>'
+            			}
+            		}
+        			$('.count').html(pageStr);
+        			if(pageStr!='')
+						togglePagenav(true);
+            	}
+			}
+			
+			
+			
+			$(function(){
+				getLeave();	
+				$('.looks').on('click','.card',function(){
+					$.ajax({
+			            url:root+"/cityplat_web/leavermsg/load.do",
+		                type:'post',
+		                data:{"id":$(this).find('.detail').attr('id')},
+			            dataType:"json",  
+	                    success:function(res){
+	                    	console.log(res)
+	                      	if(res.requestCode==0){
+	                      		$('#detail_contacter').html((res.data.isAnonymousStr.length==11?(res.data.isAnonymousStr):(res.data.isAnonymousStr.substring(0,2)+'')));
+	                      		$('#detail_time').html(res.data.leaveTimeStr);//
+	                      		$('#detail_title').html(res.data.title);
+	                      		$('#detail_content').html(res.data.content);
+	                      		$('#detail_type').html("【"+res.data.msgTypeName+"】");
+	                      		if(res.data.replyStatus){
+	                      			$('#detail_reply_div').show();
+	                      			$('#detail_reply').html(res.data.replyContent);
+	                      		}else{
+	                      			$('#detail_reply_div').hide();
+	                      		}
+	                      		$('.details').show();
+	        					$('.shade').show();
+	                      	}else{
+	                      		$('.details').hide();
+	        					$('.shade').hide();
+	                      	}
+	                    }
+	                })					
+				})
+				$('.details>img').click(function(){
+					$('.details').hide();
+					$('.shade').hide();
+				})
+				$('input[type="text"]').focus(function(){
+					$(this).css({
+						'border':'1px solid #38A479',
+						'background':'#ffffff'
+					});
+				})
+				$('input[type="text"]').blur(function(){
+					$(this).css({
+						'border':'1px solid #cccccc',
+						'background':'#F7F7F7'
+					});
+				})
+				$('textarea').focus(function(){
+					$(this).css({
+						'border':'1px solid #38A479',
+						'background':'#ffffff'
+					});
+				})
+				$('textarea').blur(function(){
+					$(this).css({
+						'border':'1px solid #cccccc',
+						'background':'#F7F7F7'
+					});
+				})
+				
+				$('.nav').find('span').eq(0).mouseover(function(){
+                    var page = localStorage.getItem('page');
+                    $(this).find('a').attr('href',page);
+					$(this).click();
+				})
+				
+				
+				$('.beside').find('#look').on('click',function(){
+					$(this).css('background','#38A479').siblings().css('background','#F7F7F7');
+					$(this).css('color','#FFFFFF').siblings().css('color','black');
+					$('.looks').show().siblings('.want').hide();
+					$('.nav').find('span').eq(4).text('查看留言');
+                    listData.pageNum = 1;
+					getLeave();
+				})
+				$('.beside').find('#want').on('click',function(){
+					$(this).css('background','#38A479').siblings().css('background','#F7F7F7');
+					$(this).css('color','#FFFFFF').siblings().css('color','black');
+					$('.want').show().siblings('.looks').hide();
+					$('.nav').find('span').eq(4).text('我要留言');
+				})
+				
+				
+				$("#ma").click(function(){
+					$(this).attr("src",root+"/servlet/validateCodeServlet?random="+Math.random());
+				})	
+				
+				
+				
+				$("#commit").click(function(){
+					var data2 = $("form").serialize();
+					var data1 = {};
+					data1.verifycode = $('.ma').val();
+					console.log(data2);
+					console.log(data1);
+					$.ajax({
+			            url:root+"/servlet/validateCodeServlet",
+		                type:'post',
+		                data:data1,
+			            dataType:"json",  
+	                    success:function(res){
+	                      	console.log(res);
+	                      	if(res.requestCode==0){
+	                      		$.ajax({
+									url:root+"/cityplat_web/leavermsg/add.do",
+					        		type:'post',
+					        		data:data2,
+					                dataType:'json',
+					                success:function(res){
+					                	console.log(res);
+					                	if(res.requestCode==0){  
+					                		console.log(2)
+					                		$('form').find('input[type="text"]').val('');
+					                		$('form').find('textarea').val('');
+					                		$('input[type="radio"]').removeAttr("checked");
+					                		console.log($('.go input[value="1"]'))
+					                		$('#know').prop('checked',true);
+					                		$('#ma').click();
+					                		showMsg('提交成功!');
+					                	}else{
+					                		showMsg(res.msg);
+					                	}
+					                }
+					            })
+	                      	}else{
+	                      		showMsg('验证码不正确!')
+	                      	}
+	                    }
+	                })
+				})
+				function showMsg(msg){
+					$('#errormsg').html(msg);
+					$('.alertmsg').show();
+					$('.errorshade').show();
+				}
+				$('#errorSubmit').click(function(){
+					$('.alertmsg').hide();
+					$('.errorshade').hide();
+				})
+				$("#ma").click(function(){
+					$(this).attr("src",root+"/servlet/validateCodeServlet?random="+Math.random());
+				});
+				
+				$('.page').on('click','.num',function(){
+					$(this).css('background','#38A479').siblings().css('background','#FFFFFF');
+					$(this).addClass('on').siblings().removeClass('on');
+					listData.pageNum = $(this).attr('data');
+					console.log(listData)
+					getLeave();
+				})
+				 //下一页
+	            $('.next').click(function(){
+	                var index = $('div.on').attr('data');
+	                var pages = $('.count').attr('pages');
+	                var lastPage = Number($('.count').attr('pages'))+1;
+	                index = (index++)==lastPage?index=pages:index++;
+//					index = index++;
+	                listData.pageNum = index; 
+	                if(index<lastPage){
+	                	$('.on').next().css('background','#38A479').siblings().css('background','#FFFFFF');
+	               		$('.on').next().addClass('on').siblings().removeClass('on');
+	                }
+	                getLeave();
+	            });
+	            //上一页
+	            $('.prev').click(function(){
+	                var index = $('div.on').attr('data');
+	                index = (index--)==0?index=1:index--;
+	                listData.pageNum = index; 
+	                if(index>0){
+	                	 $('.on').prev().css('background','#38A479').siblings().css('background','#FFFFFF');
+	               		$('.on').prev().addClass('on').siblings().removeClass('on');
+	                } 
+	                getLeave();
+
+	            });
+	            console.log($('.nav').find('span').eq(0).text());
+	            $('.leave').find('img').click(function(){
+	            	$('.nav').find('span').eq(0).hide();
+	            	console.log($('.nav').find('span').eq(0).text());
+	            	$('.nav').find('span').eq(1).hide();
+	            })
+	            
+	            
+	            var name = localStorage.getItem('pagename');
+				
+            	$('.nav').find('span').eq(0).show();
+            	$('.nav').find('span a').eq(0).text(name);
+            	$('.nav').find('span').eq(1).show();
+			})
+			
+		</script>
+	</body>
+</html>
